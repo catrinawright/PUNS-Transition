@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<!--
+  Family Transition Planning Guide
+  Chicago, IL
+
+  © 2026 Catrina Wright. Licensed under CC BY-NC 4.0.
+  https://creativecommons.org/licenses/by-nc/4.0/
+
+  You are free to share and adapt this material for non-commercial purposes,
+  provided appropriate credit is given and changes are indicated.
+  Commercial use is prohibited without written permission.
+  Contact: cwright.specialed@gmail.com
+-->
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Family Transition Planning Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:ital,wght@0,400;0,600;1,400&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'IBM Plex Sans',system-ui,sans-serif;background:#f0ece4;color:#1a1e2a;overflow:hidden}
+#shell{display:flex;flex-direction:column;height:100vh}
+#header{background:#1b2333;padding:0 22px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;border-bottom:1px solid rgba(255,255,255,.05)}
+#header-left{display:flex;align-items:center;gap:14px;padding:11px 0}
+#logo{width:34px;height:34px;border-radius:4px;background:#c4501e;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-family:'IBM Plex Serif',serif;font-weight:600;font-size:12.5px;color:#fff;letter-spacing:-.3px}
+#app-title{font-family:'IBM Plex Serif',serif;font-weight:600;font-size:16px;color:#fff;letter-spacing:-.2px;line-height:1.2}
+#app-sub{font-size:10.5px;color:rgba(255,255,255,.38);margin-top:2px}
+#lang-btn{background:rgba(255,255,255,.06);color:rgba(255,255,255,.7);border:none;padding:7px 16px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;font-size:12px;font-weight:500;border-radius:4px}
+#body{display:flex;flex:1;overflow:hidden}
+#sidebar{width:198px;background:#1b2333;padding:14px 0;flex-shrink:0;overflow-y:auto;border-right:1px solid rgba(255,255,255,.03)}
+.nav-divider{height:1px;background:rgba(255,255,255,.06);margin:7px 16px}
+.nav-btn{display:block;width:100%;text-align:left;padding:7px 16px;background:transparent;color:rgba(255,255,255,.6);border:none;border-left:2px solid transparent;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;font-size:12.5px;font-weight:400;line-height:1.4;transition:all .1s}
+.nav-btn.active{background:rgba(255,255,255,.06);color:#f0c185;border-left-color:#c4501e;font-weight:600}
+#main{flex:1;overflow-y:auto;padding:22px 28px;background:#f0ece4}
+#footer{background:#1b2333;color:rgba(255,255,255,.25);padding:6px 22px;font-size:10.5px;text-align:center;flex-shrink:0;border-top:1px solid rgba(255,255,255,.04)}
+
+/* ── UDL TOOLBAR ── */
+#udl-bar{display:flex;align-items:center;gap:6px;padding:7px 0 10px;border-bottom:1px solid #dbd5c8;margin-bottom:22px;flex-wrap:wrap}
+.udl-label{font-size:10.5px;font-weight:600;color:#6a6f80;text-transform:uppercase;letter-spacing:.07em;margin-right:4px}
+.udl-sep{width:1px;height:16px;background:#dbd5c8}
+.udl-txt{font-size:11px;color:#6a6f80;margin-right:2px}
+.udl-btn{font-family:'IBM Plex Sans',sans-serif;border:1px solid #dbd5c8;border-radius:4px;cursor:pointer;padding:3px 11px;font-size:11.5px;font-weight:500;line-height:1.4;background:transparent;color:#6a6f80;transition:all .1s;display:inline-flex;align-items:center;gap:5px}
+.udl-btn.active{background:rgba(196,80,30,.08);color:#c4501e;border-color:rgba(196,80,30,.4)}
+.udl-btn-sz{font-family:'IBM Plex Serif',serif;font-weight:600;padding:2px 8px}
+#sz-1{font-size:13px}.udl-btn-sz#sz-2{font-size:15.5px}.udl-btn-sz#sz-3{font-size:18px}
+
+/* ── CONTENT ── */
+#content{transition:zoom .1s}
+.zoom-lg{zoom:1.15}
+.zoom-xl{zoom:1.32}
+
+/* ── SECTION HEADER ── */
+.sec-h1{font-family:'IBM Plex Serif',serif;font-size:25px;font-weight:600;color:#1a1e2a;line-height:1.2;margin:0 0 6px}
+.sec-sub{font-size:13px;color:#6a6f80;line-height:1.6;margin:0}
+.sec-rule{margin-top:14px;height:2px;margin-bottom:28px}
+
+/* ── CARDS ── */
+.card{background:#fff;border-radius:7px;padding:17px 20px;margin-bottom:12px;border:1px solid #dbd5c8}
+.grid-2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+
+/* ── ALERTS ── */
+.alert{border-left:3px solid #c4501e;padding:11px 15px;margin-bottom:14px;display:flex;gap:10px;align-items:flex-start;background:#fdf1ec}
+.alert.info{border-left-color:#2a6e8a;background:#eaf4f8}
+.alert-dot{width:15px;height:15px;border-radius:50%;background:#c4501e;flex-shrink:0;margin-top:2px;display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff}
+.alert.info .alert-dot{background:#2a6e8a}
+.alert-body{font-size:13px;color:#1a1e2a;line-height:1.7}
+
+/* ── STEPS ── */
+.step{display:flex;gap:14px;margin-bottom:10px;background:#fff;border-radius:7px;padding:14px 16px;border:1px solid #dbd5c8}
+.step-num{width:30px;height:30px;border-radius:50%;background:#1b2333;color:#f0c185;display:flex;align-items:center;justify-content:center;font-family:'IBM Plex Serif',serif;font-weight:600;font-size:13px;flex-shrink:0}
+.step-title{font-weight:600;font-size:13.5px;color:#1a1e2a;margin-bottom:3px}
+.step-body{font-size:13px;color:#6a6f80;line-height:1.7}
+
+/* ── CONTACTS ── */
+.contact-card{background:#faf8f4;border-radius:6px;padding:11px 14px;border:1px solid #dbd5c8;margin-bottom:7px}
+.contact-name{font-weight:600;font-size:13px;color:#1a1e2a;margin-bottom:5px}
+.contact-details{font-size:12px;color:#6a6f80;display:flex;flex-wrap:wrap;gap:4px 13px}
+
+/* ── TABLES ── */
+.tbl{width:100%;border-collapse:collapse;font-size:13px}
+.tbl th{padding:8px 11px;text-align:left;font-weight:600;color:#6a6f80;border-bottom:1px solid #dbd5c8;font-size:11px;text-transform:uppercase;letter-spacing:.05em;background:#faf8f4}
+.tbl td{padding:10px 11px;border-bottom:1px solid #dbd5c8;vertical-align:top;line-height:1.65;color:#6a6f80}
+.tbl td:first-child{font-weight:600;color:#1a1e2a}
+.tbl tr:nth-child(even) td{background:#faf8f4}
+.tbl-amt{font-weight:700;color:#0e4d80}
+
+/* ── PILLS & LABELS ── */
+.pill{display:inline-block;font-size:10.5px;font-weight:600;padding:2px 8px;border-radius:3px;letter-spacing:.04em}
+.sub-lbl{font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.06em;margin-bottom:8px}
+
+/* ── HEADINGS ── */
+.h3{font-family:'IBM Plex Serif',serif;font-weight:600;font-size:15px;color:#1a1e2a;margin:20px 0 10px}
+.h4{font-weight:600;font-size:13.5px;color:#1a1e2a;margin-bottom:7px}
+
+/* ── OVERVIEW CARDS ── */
+.ov-grid{display:grid;grid-template-columns:1fr 1fr;gap:9px}
+.ov-card{text-align:left;background:#fff;border:1px solid #dbd5c8;border-radius:7px;padding:15px 17px;cursor:pointer;font-family:'IBM Plex Sans',sans-serif;width:100%}
+.ov-card:hover{border-color:#bfb8aa}
+.ov-card-title{font-weight:600;font-size:13.5px;margin-bottom:5px}
+.ov-card-desc{font-size:12px;color:#6a6f80;line-height:1.6;margin:0}
+
+/* ── STATS ROW ── */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:14px}
+.stat-box{background:#eaf4f8;border-radius:5px;padding:10px;text-align:center}
+.stat-val{font-family:'IBM Plex Serif',serif;font-weight:600;font-size:16px;color:#2a6e8a}
+.stat-lbl{font-size:10.5px;color:#2a6e8a;margin-top:2px;opacity:.8}
+
+/* ── ELIGIBILITY GRID ── */
+.elig-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:7px;margin-top:4px}
+.elig-item{background:#f0f7f2;border:1px solid #b8ddc8;border-radius:5px;padding:8px 11px;font-size:12.5px;display:flex;align-items:flex-start;gap:7px}
+.elig-ck{color:#0e5c40;font-weight:700;font-size:14px;flex-shrink:0;margin-top:-1px}
+
+/* ── DD CHIPS ── */
+.dd-chips{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px}
+.dd-chip{background:#fef3ec;border:1px solid #f0c8a0;border-radius:3px;padding:3px 10px;font-size:12px;font-weight:600;color:#7a3a10}
+
+/* ── FUNCTIONAL GRID ── */
+.func-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:8px 0 10px}
+.func-item{background:#f3f0f8;border:1px solid #d0c8e8;border-radius:4px;padding:7px 8px;font-size:12px;font-weight:600;text-align:center;color:#4a3282}
+
+/* ── WAIVER BOXES ── */
+.waiver-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:10px 0 12px}
+.waiver-box{border-radius:6px;padding:14px;text-align:center}
+.waiver-box.child{background:#eaf4f8;border:2px solid #90cfe0}
+.waiver-box.adult{background:#fdf1ec;border:2px solid #f0b090}
+.waiver-box h4{font-family:'IBM Plex Serif',serif;font-weight:600;font-size:13px;margin-bottom:7px}
+.waiver-amt{font-family:'IBM Plex Serif',serif;font-weight:600;font-size:22px}
+.waiver-amt.c{color:#2a6e8a}
+.waiver-amt.a{color:#c4501e}
+.waiver-sub{font-size:11px;color:#6a6f80;margin-top:3px}
+
+/* ── SERVICE CHIPS ── */
+.svc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(155px,1fr));gap:6px;margin-top:8px}
+.svc-chip{background:#f0f7f2;border:1px solid #b8ddc8;border-radius:4px;padding:7px 10px;font-size:12px;font-weight:600;text-align:center;color:#0e5c40}
+
+/* ── ISC CARDS ── */
+.isc-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:6px}
+.isc-card{border-radius:6px;padding:13px;border:2px solid}
+.isc-card.n{background:#f0f7f2;border-color:#b8ddc8}
+.isc-card.s{background:#eaf4f8;border-color:#90cfe0}
+.isc-dir{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:4px}
+.isc-card.n .isc-dir{color:#0e5c40}
+.isc-card.s .isc-dir{color:#2a6e8a}
+.isc-card h4{font-family:'IBM Plex Serif',serif;font-weight:600;font-size:13.5px;margin-bottom:7px}
+.isc-card p{font-size:12px;color:#6a6f80;line-height:1.6;margin-bottom:2px}
+
+/* ── PROGRAM CARDS ── */
+.prog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(195px,1fr));gap:8px;margin-top:8px}
+.prog-card{background:#f3f0f8;border:1px solid #d0c8e8;border-radius:6px;padding:11px 13px}
+.prog-card h4{font-weight:600;font-size:13px;color:#4a3282;margin-bottom:2px}
+.prog-card p{font-size:11.5px;color:#6a6f80}
+
+/* ── COMPARE GRID ── */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px}
+.compare-col{border-radius:6px;padding:14px;border-top:3px solid}
+.compare-col.idea{background:#eaf4f8;border-color:#2a6e8a}
+.compare-col.ada{background:#f0f7f2;border-color:#0e5c40}
+.compare-col h3{font-family:'IBM Plex Serif',serif;font-weight:600;font-size:14px;margin-bottom:4px}
+.compare-col .law-sub{font-size:10.5px;font-weight:600;text-transform:uppercase;letter-spacing:.07em;margin-bottom:9px}
+.compare-col.idea .law-sub{color:#2a6e8a}
+.compare-col.ada .law-sub{color:#0e5c40}
+.compare-col ul{padding-left:14px;font-size:12.5px}
+.compare-col li{margin-bottom:3px;color:#6a6f80}
+
+/* ── NOTE BOX ── */
+.note-box{background:#fef9ec;border-left:3px solid #c4901e;border-radius:0 5px 5px 0;padding:9px 13px;font-size:12.5px;font-weight:500;margin-top:12px;color:#7a5010}
+
+/* ── CHECKLIST ── */
+.progress-bar-wrap{background:#dbd5c8;border-radius:100px;height:5px;overflow:hidden;margin-top:5px}
+.progress-bar-fill{height:100%;border-radius:100px;transition:width .3s;background:#c4501e}
+.cl-group-head{display:flex;align-items:baseline;gap:10px;margin-bottom:10px;padding-bottom:8px;border-bottom:2px solid}
+.cl-group-age{font-family:'IBM Plex Serif',serif;font-weight:600;font-size:15px}
+.cl-group-sub{font-size:11.5px;color:#6a6f80;font-style:italic}
+.cl-item{display:flex;align-items:flex-start;gap:9px;padding:9px 13px;margin-bottom:5px;cursor:pointer;background:#fff;border:1px solid #dbd5c8;border-radius:0 6px 6px 0;transition:all .12s}
+.cl-item.urgent{border-color:#e8b49e}
+.cl-item.done{background:#f5f3ef}
+.cl-item.done .cl-text{text-decoration:line-through;color:#6a6f80}
+.cl-check{width:15px;height:15px;border-radius:3px;border:2px solid #c0bdb0;background:transparent;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;font-size:9px;font-weight:700;color:#fff;transition:all .12s}
+.cl-check.checked{background:currentColor;border-color:currentColor}
+.cl-text{font-size:13px;color:#1a1e2a;line-height:1.6;flex:1}
+.cl-urgent-badge{font-size:10px;font-weight:600;background:#fdf1ec;color:#c4501e;padding:1px 7px;border-radius:3px;letter-spacing:.04em;flex-shrink:0;align-self:center}
+
+/* ── CONTACTS SEARCH ── */
+#contacts-search,#contacts-filter{padding:8px 12px;border:1px solid #dbd5c8;border-radius:5px;font-family:'IBM Plex Sans',sans-serif;font-size:13px;background:#fff;color:#1a1e2a;outline:none}
+#contacts-search{flex:1 1 180px}
+
+/* ── HIGH CONTRAST ── */
+body.hc{background:#111;color:#f0ede6}
+body.hc #header,body.hc #sidebar,body.hc #footer{background:#000}
+body.hc #main{background:#111}
+body.hc .card,body.hc .step,body.hc .contact-card,body.hc .ov-card{background:#1d1d1d;border-color:#3c3c38;color:#f0ede6}
+body.hc .sec-h1,body.hc .h3,body.hc .h4,body.hc .step-title{color:#f0ede6}
+body.hc .sec-sub,body.hc .step-body,body.hc .alert-body,body.hc .contact-details,body.hc .tbl td{color:#b0aaa0}
+body.hc .alert{background:#2a1005;border-left-color:#ff6b35}
+body.hc .alert.info{background:#051822;border-left-color:#5acbf5}
+body.hc .alert-dot{background:#ff6b35}
+body.hc .alert.info .alert-dot{background:#5acbf5}
+body.hc .tbl th,body.hc .tbl tr:nth-child(even) td{background:#1a1a1a}
+body.hc .tbl{color:#b0aaa0}
+body.hc .tbl th{color:#b0aaa0}
+body.hc .stat-box{background:#051822}
+body.hc .stat-val,body.hc .stat-lbl{color:#5acbf5}
+body.hc #contacts-search,body.hc #contacts-filter{background:#1d1d1d;border-color:#3c3c38;color:#f0ede6}
+body.hc #udl-bar{border-color:#3c3c38}
+body.hc .udl-sep{background:#3c3c38}
+body.hc .udl-btn{border-color:#3c3c38;color:#b0aaa0}
+body.hc .udl-btn.active{background:rgba(255,107,53,.12);color:#ff6b35;border-color:rgba(255,107,53,.4)}
+body.hc .progress-bar-wrap{background:#3c3c38}
+body.hc .cl-item{background:#1d1d1d;border-color:#3c3c38}
+body.hc .cl-item.done{background:#111}
+body.hc .cl-item.urgent{border-color:#7a3010}
+body.hc .cl-check{border-color:#888}
+body.hc .contact-card{background:#1a1a1a}
+body.hc .elig-item{background:#0a1a0c;border-color:#2e5c33}
+body.hc .dd-chip{background:#2a1005;border-color:#7a3a10;color:#f0b090}
+body.hc .func-item{background:#1a0f2e;border-color:#5a3080;color:#c0a0f0}
+body.hc .waiver-box.child{background:#051822;border-color:#1a5060}
+body.hc .waiver-box.adult{background:#1a0505;border-color:#7a2010}
+body.hc .svc-chip{background:#0a1a0c;border-color:#2e5c33;color:#7adda0}
+body.hc .isc-card.n{background:#0a1a0c;border-color:#2e5c33}
+body.hc .isc-card.s{background:#051822;border-color:#1a5060}
+body.hc .prog-card{background:#1a0f2e;border-color:#5a3080}
+body.hc .prog-card h4{color:#c0a0f0}
+body.hc .compare-col.idea{background:#051822;border-color:#2a6e8a}
+body.hc .compare-col.ada{background:#0a1a0c;border-color:#0e5c40}
+body.hc .note-box{background:#1a1000;color:#c5a030}
+
+/* ── READ ALOUD ── */
+.card:hover,.step:hover,.alert:hover,.contact-card:hover{cursor:pointer;outline:2px solid rgba(196,80,30,.2);outline-offset:2px}
+.cl-item:hover{outline:none}
+.reading{outline:2px solid #c4501e !important;outline-offset:3px}
+body.hc .reading{outline-color:#ff6b35 !important}
+
+/* ── PRINT ── */
+@media print{
+  #header,#sidebar,#footer,#udl-bar{display:none!important}
+  body{overflow:auto!important;background:#fff!important}
+  #main{overflow:visible!important;height:auto!important;padding:20px!important;background:#fff!important}
+  #content{zoom:1!important}
+}
+</style>
+</head>
+<body>
+<div id="shell">
+  <header id="header">
+    <div id="header-left">
+      <div id="logo">OSD</div>
+      <div>
+        <div id="app-title"></div>
+        <div id="app-sub">Chicago Public Schools</div>
+      </div>
+    </div>
+    <button id="lang-btn" onclick="toggleLang()"></button>
+  </header>
+
+  <div id="body">
+    <nav id="sidebar">
+      <button class="nav-btn" data-key="overview"  onclick="nav('overview')"></button>
+      <button class="nav-btn" data-key="idea"       onclick="nav('idea')"></button>
+      <button class="nav-btn" data-key="puns"       onclick="nav('puns')"></button>
+      <button class="nav-btn" data-key="legal"      onclick="nav('legal')"></button>
+      <button class="nav-btn" data-key="financial"  onclick="nav('financial')"></button>
+      <button class="nav-btn" data-key="college"    onclick="nav('college')"></button>
+      <button class="nav-btn" data-key="programs"   onclick="nav('programs')"></button>
+      <button class="nav-btn" data-key="hsp"        onclick="nav('hsp')"></button>
+      <button class="nav-btn" data-key="transport"  onclick="nav('transport')"></button>
+      <button class="nav-btn" data-key="recreation" onclick="nav('recreation')"></button>
+      <button class="nav-btn" data-key="community"  onclick="nav('community')"></button>
+      <button class="nav-btn" data-key="justice"    onclick="nav('justice')" style="border-left:3px solid #7a1a2e;"></button>
+      <div class="nav-divider"></div>
+      <button class="nav-btn" data-key="checklist"  onclick="nav('checklist')"></button>
+      <button class="nav-btn" data-key="contacts"   onclick="nav('contacts')"></button>
+    </nav>
+
+    <main id="main">
+      <div id="udl-bar">
+        <span class="udl-label" id="udl-lbl"></span>
+        <div class="udl-sep"></div>
+        <span class="udl-txt" id="udl-sz-lbl"></span>
+        <button class="udl-btn udl-btn-sz active" id="sz-1" onclick="setZoom(0)">A</button>
+        <button class="udl-btn udl-btn-sz" id="sz-2" onclick="setZoom(1)">A</button>
+        <button class="udl-btn udl-btn-sz" id="sz-3" onclick="setZoom(2)">A</button>
+        <div class="udl-sep"></div>
+        <button class="udl-btn" id="hc-btn" onclick="toggleHC()">◐ <span id="hc-lbl"></span></button>
+        <div class="udl-sep"></div>
+        <button class="udl-btn" id="ra-btn" onclick="stopRA()">⏹ <span id="ra-lbl"></span></button>
+        <div class="udl-sep"></div>
+        <button class="udl-btn" onclick="window.print()">⎙ <span id="print-lbl"></span></button>
+      </div>
+      <div id="content"></div>
+    </main>
+  </div>
+
+  <footer id="footer"><span id="disclaimer"></span> &nbsp;·&nbsp; © 2026 Catrina Wright &nbsp;·&nbsp; <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank" style="color:rgba(255,255,255,.35);text-decoration:underline;">CC BY-NC 4.0</a> &nbsp;·&nbsp; Non-commercial use only &nbsp;·&nbsp; cwright.specialed@gmail.com
+  &nbsp;·&nbsp;
+  <span style="color:rgba(255,255,255,.3);font-weight:700;text-transform:uppercase;letter-spacing:.06em;font-size:.68rem;">Connected Tools:</span>
+  <a href="https://catrinawright.github.io/iep/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.45);text-decoration:none;margin:0 .3rem;">The IEP Journey</a> ·
+  <a href="https://catrinawright.github.io/iep-jargon-tool/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.45);text-decoration:none;margin:0 .3rem;">IEP Jargon Tool</a> ·
+  <a href="https://catrinawright.github.io/expungement/" target="_blank" rel="noopener" style="color:rgba(255,255,255,.45);text-decoration:none;margin:0 .3rem;">IEP Compliance &amp; Records Relief</a>
+</footer>
+</div>
+
+<script>
+var S={lang:'en',section:'overview',zoom:0,hc:false,speaking:false,checked:{}};
+
+var STR={
+  en:{
+    title:'Family Transition Planning Guide',
+    langBtn:'Ver en Español',
+    nav:{overview:'Overview',idea:'IDEA vs. ADA',puns:'1 · PUNS',legal:'2 · Legal Supports',financial:'3 · Financial Supports',college:'4 · College Funding',programs:'5 · College Programs',hsp:'6 · Home Services',transport:'7 · Transportation',recreation:'8 · Recreation',community:'9 · Community Access',justice:'10 · Justice-Involved',checklist:'Age-Based Checklist',contacts:'Contacts Directory'},
+    disclaimer:'For informational and educational purposes only. Does not constitute legal or financial advice. Does not create an attorney-client relationship. Information referencing Illinois law reflects the law as of May 2026. For specific legal or financial situations, consult a qualified attorney or financial advisor.',
+    udl:{lbl:'Accessibility',sz:'Text Size',hc:'High Contrast',ra:'Click to Read',stop:'Stop Reading',print:'Print'},
+    search:'Search contacts…',allCats:'All Categories',reset:'Reset',progress:'Progress',noResults:'No contacts match your search.',urgentBadge:'TIME-SENSITIVE'
+  },
+  es:{
+    title:'Guía de Planificación de Transición Familiar',
+    langBtn:'View in English',
+    nav:{overview:'Vista General',idea:'IDEA vs. ADA',puns:'1 · PUNS',legal:'2 · Apoyos Legales',financial:'3 · Apoyos Financieros',college:'4 · Fondos Universitarios',programs:'5 · Programas Universitarios',hsp:'6 · Servicios en el Hogar',transport:'7 · Transporte',recreation:'8 · Recreación',community:'9 · Acceso Comunitario',justice:'10 · Involucramiento Judicial',checklist:'Lista de Acciones por Edad',contacts:'Directorio de Contactos'},
+    disclaimer:'Solo para fines informativos y educativos. No constituye asesoramiento legal ni financiero. No crea una relación abogado-cliente. La información que hace referencia a la ley de Illinois refleja la ley a mayo de 2026. Para situaciones legales o financieras específicas, consulte a un abogado o asesor financiero calificado.',
+    udl:{lbl:'Accesibilidad',sz:'Tamaño',hc:'Alto Contraste',ra:'Clic para Leer',stop:'Detener Lectura',print:'Imprimir'},
+    search:'Buscar contactos…',allCats:'Todas las Categorías',reset:'Reiniciar',progress:'Progreso',noResults:'Ningún contacto coincide con su búsqueda.',urgentBadge:'URGENTE'
+  }
+};
+
+var CC={idea:'#2a6e8a',puns:'#0e5c40',legal:'#4a3282',financial:'#0e4d80',college:'#0e4d80',programs:'#4a3282',hsp:'#7a3a10',transport:'#0e6060',recreation:'#3f560a',community:'#620e52',justice:'#7a1a2e'};
+var CM={en:{idea:'IDEA/ADA',puns:'PUNS',legal:'Legal',financial:'Financial',college:'College',programs:'Programs',hsp:'Home Services',transport:'Transport',recreation:'Recreation',community:'Community'},
+        es:{idea:'IDEA/ADA',puns:'PUNS',legal:'Legal',financial:'Financiero',college:'Universidad',programs:'Programas',hsp:'Serv. Hogar',transport:'Transporte',recreation:'Recreación',community:'Comunitario'}};
+
+var CONTACTS=[
+  {name:'IDHS — ISC Agency Locator (PUNS)',phone:'1-888-337-5267',tty:'1-866-376-8446',web:'www.dhs.state.il.us',note:"Select 'Developmental Disability Services'",cat:'puns'},
+  {name:'Community Alternatives Unlimited (ISC — North of Roosevelt Rd)',phone:'773.867.4000',tty:'773.867.4168',web:'www.cau.org',address:'8765 W Higgins Rd, 3rd Floor, Chicago, IL 60631',cat:'puns'},
+  {name:'Community Service Options, Inc. (ISC — South of Roosevelt Rd)',phone:'888.276.4467',tty:'773.884.1002',web:'www.cso1.org',address:'6845 S. Western Ave, Chicago, IL 60636',cat:'puns'},
+  {name:'UCP Seguin — Free Transition Support',phone:'708.863.3803',web:'ucpseguin.org',address:'3100 S. Central Ave., Cicero, IL 60804',note:'Bilingual staff · Latino Outreach Program available',cat:'puns'},
+  {name:'CPS Transition / DRS Referrals',phone:'773-553-1851',email:'drsreferrals@cps.edu',cat:'puns'},
+  {name:'IDHS / DRS — General',phone:'1-800-843-6154',email:'dhs.webbits@illinois.gov',web:'www.dhs.state.il.us',cat:'puns'},
+  {name:'The Arc of Illinois — Family Advocate Program',phone:'815.464.1832 x1032',tollFree:'866.931.1110',spanish:'708.218.1958',web:'www.thearcofil.org',note:'Family-to-Family Health Info Center available for youth under 22',cat:'legal'},
+  {name:'Community Service Options, Inc. (CSO)',phone:'773-471-4700',tollFree:'1-888-CSO-4467',web:'www.cso1.org',address:'6845 S. Western Ave., Chicago, IL 60636',hours:'Mon–Fri, 8:30 AM–4:30 PM',cat:'financial'},
+  {name:'IDHS — SSI, Medicaid, SNAP & ABLE',phone:'1-800-843-6154',tty:'1-800-447-6404',web:'www.dhs.state.il.us',hours:'Mon–Fri, 8:00 AM–5:30 PM',cat:'financial'},
+  {name:'Social Security Administration',phone:'1-800-772-1213',web:'www.ssa.gov',note:"Apply for SSI up to 3 months before student's 18th birthday",cat:'financial'},
+  {name:'IDHS/DRS — Home Services Program',phone:'1-800-843-6154',tty:'1-866-324-5553',web:'www.dhs.state.il.us',note:"Search 'Apply Online' → Office Type: Rehabilitation Services",cat:'hsp'},
+  {name:'Home Care Ombudsman Program',phone:'1-800-252-8966',note:'Free and independent of DRS. Helps HSP customers understand rights and resolve service problems.',cat:'hsp'},
+  {name:'Pace — Rideshare Access Program (RAP)',email:'RAP@PaceBus.com',web:'PaceBus.com/RAP',note:'Rider fare: $3.25/trip · Pace subsidy up to $30/trip · 30 visits/month cap',cat:'transport'},
+  {name:'McGuane Park — Special Recreation',address:'2901 S. Poplar St., 60608',phone:'312.747.6497',note:'Coordinator: Kate McIntosh',cat:'recreation'},
+  {name:'Harrison Park — Special Recreation',address:'1824 S. Wood St., 60608',phone:'312.746.9581',note:'Coordinator: Sylvia Herrera',cat:'recreation'},
+  {name:'Piotrowski Park — Special Recreation',address:'4247 W. 31st St., 60623',phone:'312.745.4801',note:'Coordinator: David Donohue',cat:'recreation'},
+  {name:'Gage Park — Special Recreation',address:'2411 W. 55th St., 60629',phone:'312.747.7635',note:'Coordinator: Katie Stachura',cat:'recreation'},
+  {name:'Eckhart Park — Special Recreation',address:'1330 W. Chicago Ave., 60622',phone:'312.746.5085',note:'Coordinator: Carmen Lopez',cat:'recreation'},
+  {name:'Foster Park — Special Recreation',address:'1440 W. 84th St., 60620',phone:'312.747.6135',note:'Coordinator: Kyle Gillard',cat:'recreation'},
+  {name:'IBCCES Accessibility Card (IAC)',web:'accessibilitycard.org',note:'Free · Valid 1 year · Renew annually · IEP accepted as medical documentation',cat:'community'},
+  {name:'Cabrini Green Legal Aid (CGLA) — Criminal Records & IDEA Compliance',web:'cgla.net/criminal-records',phone:'312.738.1118',note:'Free legal services · Records relief, IEP rights in correctional settings, due process support · Chicago',cat:'justice'},
+  {name:'Illinois Legal Aid Online',web:'illinoislegalaid.org',note:'Free legal resources · Special education rights, housing with a record, dispute resolution',cat:'justice'},
+  {name:'IDHS / ISC Agency Locator — PUNS Status During Detention',phone:'1-888-337-5267',tty:'1-866-376-8446',web:'www.dhs.state.il.us',note:'Contact immediately upon a child\'s detention to ask about PUNS and Medicaid status. Select Developmental Disability Services.',cat:'justice'},
+  {name:'IDJJ School District #428 — Education in IDJJ Facilities',web:'idjj.illinois.gov/school-district-428',note:'Superintendent: Dr. Tresa Dunbar · Serves students in IDJJ state facilities only · County detention centers are NOT under this jurisdiction',cat:'justice'}
+];
+
+var CL={
+  en:[
+    {age:'Age 14',sub:'Begin Early',color:'#0e5c40',items:[
+      {t:'Begin DRS referral — any CPS staff, family member, or student can initiate',u:false},
+      {t:'Contact ISC agency to begin PUNS enrollment conversation',u:false},
+      {t:'Start identifying vocational interests, employment goals, and community preferences',u:false},
+      {t:'Request transition assessments if not already underway',u:false}
+    ]},
+    {age:'Before Age 18',sub:'Act Now — Critical Deadlines',color:'#b86a00',items:[
+      {t:"Enroll in PUNS under 'Seeking Services' category — waitlists span several years",u:true},
+      {t:"Apply for SSI — accepted up to 3 months before the student's 18th birthday",u:true},
+      {t:'Consult attorney about guardianship, Power of Attorney, or Supportive Decision-Making',u:true},
+      {t:'Confirm RTA-certified ADA Paratransit status with Pace',u:false},
+      {t:'Contact UCP Seguin for free Transition Outreach Specialist support',u:false},
+      {t:'Contact The Arc of Illinois if family needs legal guidance or advocacy',u:false}
+    ]},
+    {age:'At Age 18',sub:'Rights & Legal Status Change',color:'#b03a1a',items:[
+      {t:'Student becomes their own legal guardian — unless court-established guardianship is in place',u:true},
+      {t:'SSI application should be finalized or active; coordinate Medicaid enrollment',u:true},
+      {t:'Student transitions to an adult DRS counselor for employment and education planning',u:false},
+      {t:'Apply for HSP if significant daily living support is needed',u:false},
+      {t:'Open ABLE account — disability onset must be before age 26; open as early as possible',u:false},
+      {t:"Apply for SSA benefits if student was on parent's SSDI record",u:false}
+    ]},
+    {age:'After Graduation',sub:'Maintain & Build',color:'#1b2333',items:[
+      {t:'Update PUNS enrollment every year — missing the annual update may remove student from waitlist',u:true},
+      {t:'Enroll in Pace RAP for flexible subsidized rideshare access',u:false},
+      {t:'Register for Chicago Park District Special Recreation programs',u:false},
+      {t:'Obtain IBCCES Accessibility Card (IAC) for community venue accommodations',u:false},
+      {t:'Coordinate with adult DRS counselor for employment and postsecondary education',u:false},
+      {t:'Explore SNAP and IDHS Cash Benefits if eligible — often linked to SSI status',u:false}
+    ]}
+  ],
+  es:[
+    {age:'A los 14 años',sub:'Comenzar Temprano',color:'#0e5c40',items:[
+      {t:'Iniciar derivación a DRS — cualquier miembro del personal de CPS, familiar o el estudiante puede hacerlo',u:false},
+      {t:'Contactar a la agencia ISC para comenzar la conversación sobre inscripción en PUNS',u:false},
+      {t:'Empezar a identificar intereses vocacionales, metas de empleo y preferencias comunitarias',u:false},
+      {t:'Solicitar evaluaciones de transición si aún no han comenzado',u:false}
+    ]},
+    {age:'Antes de los 18 años',sub:'Actuar Ahora — Plazos Críticos',color:'#b86a00',items:[
+      {t:"Inscribirse en PUNS en la categoría 'Búsqueda de Servicios' — la lista puede durar varios años",u:true},
+      {t:"Solicitar SSI — se acepta hasta 3 meses antes del 18° cumpleaños del estudiante",u:true},
+      {t:'Consultar a un abogado sobre tutela, poder notarial o toma de decisiones con apoyo',u:true},
+      {t:'Confirmar el estado de certificación ADA del Paratránsito de Pace (RTA)',u:false},
+      {t:'Contactar a UCP Seguin para apoyo gratuito del Especialista en Transición (TOS)',u:false},
+      {t:'Contactar a The Arc de Illinois si la familia necesita orientación legal o defensa de derechos',u:false}
+    ]},
+    {age:'A los 18 años',sub:'Cambios en Derechos y Estado Legal',color:'#b03a1a',items:[
+      {t:'El estudiante se convierte en su propio tutor legal — a menos que haya una tutela judicial',u:true},
+      {t:'La solicitud de SSI debe estar finalizada o activa; coordinar inscripción en Medicaid',u:true},
+      {t:'El estudiante pasa a un consejero de DRS para adultos',u:false},
+      {t:'Solicitar el HSP si se necesita apoyo significativo para las actividades de la vida diaria',u:false},
+      {t:'Abrir cuenta ABLE — la discapacidad debe haber comenzado antes de los 26 años',u:false},
+      {t:"Solicitar beneficios del SSA si el estudiante estaba en el registro de SSDI de los padres",u:false}
+    ]},
+    {age:'Después de la Graduación',sub:'Mantener y Construir',color:'#1b2333',items:[
+      {t:'Actualizar la inscripción en PUNS cada año — no actualizarla puede eliminar al estudiante de la lista',u:true},
+      {t:'Inscribirse en RAP de Pace para acceso flexible y subsidiado a viajes compartidos',u:false},
+      {t:'Registrarse en los programas de Recreación Especial del Distrito de Parques de Chicago',u:false},
+      {t:'Obtener la Tarjeta de Accesibilidad IBCCES (IAC) para acomodaciones en lugares comunitarios',u:false},
+      {t:'Coordinar con el consejero de DRS para empleo y educación postsecundaria',u:false},
+      {t:'Explorar beneficios de SNAP y efectivo de IDHS si es elegible — a menudo vinculados al SSI',u:false}
+    ]}
+  ]
+};
+
+function e(str){return String(str).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+function secHeader(title,subtitle,accentColor){var grad='linear-gradient(to right,'+accentColor+','+accentColor+'30 70%,transparent)';return '<h1 class="sec-h1">'+e(title)+'</h1>'+(subtitle?'<p class="sec-sub">'+e(subtitle)+'</p>':'')+'<div class="sec-rule" style="background:'+grad+'"></div>'}
+function alert_(text,type){var cls=type==='info'?'alert info':'alert';return '<div class="'+cls+'"><div class="alert-dot">!</div><div class="alert-body">'+e(text)+'</div></div>'}
+function card(inner,borderColor,side){var style='';if(borderColor&&side==='top')style='border-top:3px solid '+borderColor;if(borderColor&&side==='left')style='border-left:3px solid '+borderColor;return '<div class="card" style="'+style+'">'+inner+'</div>'}
+function step(n,title,body){return '<div class="step"><div class="step-num">'+n+'</div><div><div class="step-title">'+e(title)+'</div><div class="step-body">'+e(body)+'</div></div></div>'}
+function pill(text,color){return '<span class="pill" style="background:'+color+'22;color:'+color+'">'+e(text)+'</span>'}
+function h3(text){return '<div class="h3">'+e(text)+'</div>'}
+function h4(text){return '<div class="h4">'+e(text)+'</div>'}
+function contactCard(ct){var d='';if(ct.phone)d+='<span>📞 '+e(ct.phone)+'</span>';if(ct.tollFree)d+='<span>📞 TF: '+e(ct.tollFree)+'</span>';if(ct.tty)d+='<span>TTY: '+e(ct.tty)+'</span>';if(ct.spanish)d+='<span>🌎 Español: '+e(ct.spanish)+'</span>';if(ct.email)d+='<span>✉️ '+e(ct.email)+'</span>';if(ct.web)d+='<span>🌐 '+e(ct.web)+'</span>';if(ct.address)d+='<span>📍 '+e(ct.address)+'</span>';if(ct.hours)d+='<span>🕐 '+e(ct.hours)+'</span>';if(ct.note)d+='<span style="font-style:italic">'+e(ct.note)+'</span>';return '<div class="contact-card"><div class="contact-name">'+e(ct.name)+'</div><div class="contact-details">'+d+'</div></div>'}
+function contactsGroup(cat){return CONTACTS.filter(function(c){return c.cat===cat;}).map(contactCard).join('')}
+
+/* ── RENDERERS ── */
+
+function renderOverview(){
+  var lg=S.lang;
+  var cards=[
+    {key:'idea',color:CC.idea,en:{t:'IDEA vs. ADA — Know the Shift',d:'IDEA guarantees services during school. After graduation, the ADA provides access only — services are not automatic. Understanding this shift is the foundation of all transition planning.'},es:{t:'IDEA vs. ADA — Conozca el Cambio',d:'IDEA garantiza servicios durante la escuela. Después de graduarse, el ADA solo brinda acceso — los servicios no son automáticos. Comprender este cambio es la base de toda la planificación de transición.'}},
+    {key:'puns',color:CC.puns,en:{t:'PUNS — Adult Services Waitlist',d:"Illinois's official waitlist for adult developmental disability services. Enrollment must begin early — waitlists span several years. Annual update required."},es:{t:'PUNS — Lista de Espera para Adultos',d:'La lista de espera oficial de Illinois para servicios de discapacidad. La inscripción debe comenzar temprano — la espera puede durar varios años. Actualización anual requerida.'}},
+    {key:'legal',color:CC.legal,en:{t:'Legal Supports',d:'Decisions triggered at age 18: guardianship, power of attorney, special needs trust, and supportive decision-making.'},es:{t:'Apoyos Legales',d:'Decisiones que se activan a los 18 años: tutela, poder notarial, fideicomiso y toma de decisiones con apoyo.'}},
+    {key:'financial',color:CC.financial,en:{t:'Financial Supports',d:'SSI, ABLE Accounts, Medicaid, and SNAP benefits that transition-age students with disabilities may be entitled to.'},es:{t:'Apoyos Financieros',d:'SSI, Cuentas ABLE, Medicaid y beneficios de SNAP a los que los estudiantes con discapacidades pueden tener derecho.'}},
+    {key:'college',color:CC.college,en:{t:'College Funding — DRS',d:'DRS can contribute funding for tuition, books, and fees at 4-year universities, community colleges, and trade programs. Up to $16,822 per academic year for 4-year institutions.'},es:{t:'Fondos Universitarios — DRS',d:'DRS puede contribuir fondos para matrícula, libros y cuotas en universidades de 4 años, colegios comunitarios y programas técnicos. Hasta $16,822 por año académico en universidades.'}},
+    {key:'programs',color:CC.programs,en:{t:'College & Postsecondary Programs',d:'Seven Illinois programs designed specifically for students with intellectual and developmental disabilities in postsecondary settings, including PACE at NLU and After 22 at Daley College.'},es:{t:'Programas Universitarios y Postsecundarios',d:'Siete programas en Illinois diseñados específicamente para estudiantes con discapacidades intelectuales y del desarrollo, incluyendo PACE en NLU y After 22 en Daley College.'}},
+    {key:'hsp',color:CC.hsp,en:{t:'Home Services Program',d:'IDHS in-home support for individuals ages 18–59 with severe disabilities, enabling them to remain at home.'},es:{t:'Servicios en el Hogar (HSP)',d:'Apoyo en el hogar de IDHS para personas de 18 a 59 años con discapacidades severas.'}},
+    {key:'transport',color:CC.transport,en:{t:'Transportation — Pace RAP',d:'Flexible subsidized rideshare access via Uber or UZURV for RTA-certified ADA Paratransit riders. Launched March 2024.'},es:{t:'Transporte — Pace RAP',d:'Acceso flexible y subsidiado a viajes compartidos vía Uber o UZURV. Lanzado en marzo de 2024.'}},
+    {key:'recreation',color:CC.recreation,en:{t:'Recreation — Chicago Parks',d:'Chicago Park District Special Recreation programs at 21 city locations for individuals with cognitive and developmental disabilities.'},es:{t:'Recreación — Parques de Chicago',d:'Programas de Recreación Especial del Distrito de Parques de Chicago en 21 ubicaciones.'}},
+    {key:'community',color:CC.community,en:{t:'Community Access — IAC Card',d:'Free IBCCES Accessibility Card that streamlines accommodation requests at participating attractions. IEP accepted as documentation.'},es:{t:'Acceso Comunitario — Tarjeta IAC',d:'Tarjeta de Accesibilidad IBCCES gratuita que simplifica las solicitudes de acomodación. El IEP se acepta como documentación.'}}
+  ];
+  var staffNote=lg==='en'?'Staff note: The Age-Based Checklist tab is designed for use during family meetings. The Contacts Directory is searchable and filterable by program area.':'Nota para el personal: La Lista de Acciones está diseñada para reuniones familiares. El Directorio de Contactos es buscable y filtrable por área de programa.';
+  var title=lg==='en'?'Guide Overview':'Vista General de la Guía';
+  var sub=lg==='en'?'Ten resource areas for families of transition-age students with I/DD.':'Diez áreas de recursos para familias de estudiantes en transición con I/DD.';
+  var grid=cards.map(function(c){return '<button class="ov-card" style="border-top:3px solid '+c.color+'" onclick="nav(\''+c.key+'\')">'+'<div class="ov-card-title" style="color:'+c.color+'">'+e(c[lg].t)+'</div>'+'<p class="ov-card-desc">'+e(c[lg].d)+'</p></button>';}).join('');
+  return secHeader(title,sub,'#c4501e')+alert_(staffNote,'info')+'<div class="ov-grid">'+grid+'</div>';
+}
+
+function renderIdea(){
+  var lg=S.lang;
+  if(lg==='en'){
+    return secHeader('IDEA vs. ADA — Understanding the Legal Shift at Graduation','The rules governing disability services change fundamentally when a student leaves school. Every family needs to understand this shift before it happens.',CC.idea)
+      +alert_('Once a student graduates or ages out of school, IDEA protections end permanently. After that point, services are not automatic — your student must apply for and meet eligibility requirements for each program separately.','urgent')
+      +card('<div class="compare-grid"><div class="compare-col idea"><h3>IDEA — Individuals with Disabilities Education Act</h3><div class="law-sub">Law of Success · Active during school</div><ul><li>Students are <strong>entitled</strong> to services</li><li>Free appropriate public education (FAPE)</li><li>Specially designed instruction</li><li>Related services and LRE</li><li>Accommodations and modifications</li></ul></div><div class="compare-col ada"><h3>ADA — Americans with Disabilities Act</h3><div class="law-sub">Law of Access · Active after school</div><ul><li>Services are <strong>NOT</strong> guaranteed</li><li>Eligibility determined by outside agencies</li><li>Accommodations only — no modifications</li><li>Self-disclosure is required</li></ul></div></div>'
+        +'<div class="note-box"><strong>Key takeaway:</strong> Under IDEA, the school system is obligated to provide services. Under ADA, the individual must request access and prove eligibility. Starting the PUNS and DRS processes while the student is still in school is the most important transition action a family can take.</div>')
+      +h3('What This Means in Practice')
+      +card('<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px"><div><div class="sub-lbl" style="color:'+CC.idea+'">In College or Vocational Training</div><ul style="padding-left:15px;font-size:12.5px;color:#6a6f80"><li style="line-height:1.7;margin-bottom:4px">Must self-disclose disability to the Disability Resource Office</li><li style="line-height:1.7;margin-bottom:4px">Accommodations provided — but not modifications to coursework</li><li style="line-height:1.7">No IEP — a 504-style accommodation plan replaces it</li></ul></div><div><div class="sub-lbl" style="color:'+CC.idea+'">In Employment</div><ul style="padding-left:15px;font-size:12.5px;color:#6a6f80"><li style="line-height:1.7;margin-bottom:4px">Employer must provide reasonable accommodations</li><li style="line-height:1.7;margin-bottom:4px">Disclosure is voluntary — but often necessary to receive support</li><li style="line-height:1.7">DRS can provide job coaching and supported employment</li></ul></div></div>');
+  } else {
+    return secHeader('IDEA vs. ADA — Comprendiendo el Cambio Legal al Graduarse','Las reglas que rigen los servicios de discapacidad cambian fundamentalmente cuando un estudiante deja la escuela.',CC.idea)
+      +alert_('Una vez que un estudiante se gradúa o cumple la edad límite, las protecciones de IDEA terminan permanentemente. Después de ese punto, los servicios no son automáticos — su estudiante debe solicitar y cumplir los requisitos de elegibilidad para cada programa por separado.','urgent')
+      +card('<div class="compare-grid"><div class="compare-col idea"><h3>IDEA — Ley de Educación para Personas con Discapacidades</h3><div class="law-sub">Ley del Éxito · Activa durante la escuela</div><ul><li>Los estudiantes tienen <strong>derecho</strong> a servicios</li><li>Educación pública gratuita y apropiada (FAPE)</li><li>Instrucción especialmente diseñada</li><li>Servicios relacionados y LRE</li><li>Acomodaciones y modificaciones</li></ul></div><div class="compare-col ada"><h3>ADA — Ley para Personas con Discapacidades de América</h3><div class="law-sub">Ley de Acceso · Activa después de la escuela</div><ul><li>Los servicios <strong>NO</strong> están garantizados</li><li>Elegibilidad determinada por agencias externas</li><li>Solo acomodaciones — sin modificaciones</li><li>La auto-divulgación es requerida</li></ul></div></div>'
+        +'<div class="note-box"><strong>Conclusión clave:</strong> Bajo IDEA, el sistema escolar está obligado a proporcionar servicios. Bajo ADA, la persona debe solicitar acceso y demostrar elegibilidad. Comenzar los procesos de PUNS y DRS mientras el estudiante aún está en la escuela es la acción de transición más importante que una familia puede tomar.</div>');
+  }
+}
+
+function renderPuns(){
+  var lg=S.lang;
+  if(lg==='en'){
+    return secHeader('PUNS — Getting on the Adult Services Waitlist','Prioritization of Urgency for Need for Services · Administered by Illinois IDHS',CC.puns)
+      +alert_("PUNS requires an annual update. If you do not update your student's enrollment each year, they may lose their place on the waitlist.")
+      +card('<div class="h4">What is PUNS?</div><p style="font-size:13.5px;color:#6a6f80;line-height:1.75">PUNS is Illinois\'s official waitlist for adult developmental disability services, administered by IDHS Division of Developmental Disabilities. Two categories exist: <strong>Seeking Services</strong> (eligible for selection when funding becomes available) and <strong>Planning for Services</strong> (not eligible for selection). Families must enroll in Seeking Services. Because waitlists span several years, enrollment can begin as early as age 2½.</p>')
+      +h3('PUNS Eligibility Requirements')
+      +card('<div class="elig-grid">'
+        +'<div class="elig-item"><span class="elig-ck">✓</span><span>U.S. citizen or legal non-citizen</span></div>'
+        +'<div class="elig-item"><span class="elig-ck">✓</span><span>Resident living in Illinois</span></div>'
+        +'<div class="elig-item"><span class="elig-ck">✓</span><span>Age 18 or older</span></div>'
+        +'<div class="elig-item"><span class="elig-ck">✓</span><span>Enrolled in Medicaid</span></div>'
+        +'<div class="elig-item"><span class="elig-ck">✓</span><span>Complete a Determination of Need (DON) assessment</span></div>'
+        +'<div class="elig-item"><span class="elig-ck">✓</span><span>Not require 24-hour nursing care</span></div>'
+        +'<div class="elig-item"><span class="elig-ck">✓</span><span>Able to be safely maintained at home or in a community setting</span></div>'
+        +'<div class="elig-item"><span class="elig-ck">✓</span><span>Have an intellectual or developmental disability</span></div>'
+        +'</div>')
+      +h3('Definition of a Developmental Disability')
+      +card('<div class="h4">A qualifying condition must be one of the following:</div>'
+        +'<div class="dd-chips"><span class="dd-chip">IQ below 70</span><span class="dd-chip">Cerebral Palsy</span><span class="dd-chip">Epilepsy</span><span class="dd-chip">Autism</span><span class="dd-chip">Traumatic Brain Injury</span></div>'
+        +'<div class="h4">AND result in substantial functional limitations in 3 or more of these areas:</div>'
+        +'<div class="func-grid"><div class="func-item">Self-Care</div><div class="func-item">Self-Direction</div><div class="func-item">Language</div><div class="func-item">Learning</div><div class="func-item">Mobility</div><div class="func-item">Independent Living</div></div>'
+        +'<div class="note-box"><strong>Important:</strong> The onset of the disability must occur before age 22 to qualify for PUNS and Developmental Disability Waiver services.</div>')
+      +h3('HCBS Waiver — What PUNS Leads To')
+      +card('<p style="font-size:13px;color:#6a6f80;line-height:1.75;margin-bottom:14px">When selected from PUNS, individuals receive access to the Home and Community Based Services (HCBS) Waiver. This provides a monthly budget — not cash — to purchase services that help individuals live safely at home or in the community. The individual and family arrange and manage their own services (<strong>self-directed services</strong>).</p>'
+        +'<div class="waiver-row"><div class="waiver-box child"><h4>Children\'s Waiver</h4><div class="waiver-amt c">$1,934<span style="font-size:14px;">/mo</span></div><div class="waiver-sub">2× annual SSI amount</div></div><div class="waiver-box adult"><h4>Adult Waiver</h4><div class="waiver-amt a">$2,901<span style="font-size:14px;">/mo</span></div><div class="waiver-sub">3× annual SSI amount</div></div></div>'
+        +'<div class="sub-lbl" style="color:'+CC.puns+'">What the HCBS Waiver Can Purchase</div>'
+        +'<div class="svc-grid"><div class="svc-chip">Adaptive Equipment</div><div class="svc-chip">Assistive Technology</div><div class="svc-chip">Behavior Intervention</div><div class="svc-chip">Community Day Services</div><div class="svc-chip">Home Modifications</div><div class="svc-chip">Non-Medical Transport</div><div class="svc-chip">Personal Support Worker</div><div class="svc-chip">Residential Habilitation</div><div class="svc-chip">Supported Employment</div><div class="svc-chip">Vehicle Modification</div></div>')
+      +h3('What to Do First')
+      +step(1,'Enroll as early as age 2½ through your local ISC Agency','PUNS enrollment happens through an Independent Service Coordination (ISC) Agency — not IDHS directly. Chicago families are served by one of two agencies based on their address relative to Roosevelt Road. See contacts below.')
+      +step(2,'Complete the Pre-Admission Screening (PAS)','The PAS determines eligibility and documents your student\'s service needs. It is conducted by your ISC Agency as part of the intake process.')
+      +step(3,'Enroll in the Seeking Services category','Families must enroll in Seeking Services — not Planning for Services — to be eligible for selection when funding becomes available.')
+      +step(4,'Contact UCP Seguin for free Transition Outreach Support','UCP Seguin\'s Transition Outreach Specialists provide free support — PUNS navigation, service eligibility, employment linkage, and family coaching. Bilingual staff available. Call 708.863.3803.')
+      +step(5,'Request a referral to DRS (begin at age 14)','A DRS referral should begin at age 14 for students enrolled in high school. If the student is 18 or older and their own guardian, they may complete the referral without parental consent. Contact DRS Referrals at 773-553-1851.')
+      +h3('DRS Referral — Required Documents')
+      +card('<p style="font-size:13px;color:#6a6f80;margin-bottom:10px">All six items below must be included. Completed packets must be mailed — they cannot be emailed or faxed due to privacy laws.</p>'
+        +'<ul style="list-style:none;padding:0">'
+        +'<li style="display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid #dbd5c8;font-size:13px"><span style="width:16px;height:16px;border:2px solid #0e5c40;border-radius:3px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;font-weight:700;color:#0e5c40">✓</span>Student Social Security Number — referral cannot be processed without it</li>'
+        +'<li style="display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid #dbd5c8;font-size:13px"><span style="width:16px;height:16px;border:2px solid #0e5c40;border-radius:3px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;font-weight:700;color:#0e5c40">✓</span>Signed Consent for Services</li>'
+        +'<li style="display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid #dbd5c8;font-size:13px"><span style="width:16px;height:16px;border:2px solid #0e5c40;border-radius:3px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;font-weight:700;color:#0e5c40">✓</span>Signed CPS Consent and Disclosure</li>'
+        +'<li style="display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid #dbd5c8;font-size:13px"><span style="width:16px;height:16px;border:2px solid #0e5c40;border-radius:3px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;font-weight:700;color:#0e5c40">✓</span>Signed DHS Release of Information</li>'
+        +'<li style="display:flex;align-items:center;gap:8px;padding:7px 0;border-bottom:1px solid #dbd5c8;font-size:13px"><span style="width:16px;height:16px;border:2px solid #0e5c40;border-radius:3px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;font-weight:700;color:#0e5c40">✓</span>Signed CRP Consent</li>'
+        +'<li style="display:flex;align-items:center;gap:8px;padding:7px 0;font-size:13px"><span style="width:16px;height:16px;border:2px solid #0e5c40;border-radius:3px;display:inline-flex;align-items:center;justify-content:center;flex-shrink:0;font-size:10px;font-weight:700;color:#0e5c40">✓</span>Signed Consent for Outside Agency</li>'
+        +'</ul>'
+        +'<div class="note-box" style="margin-top:10px"><strong>Mail to:</strong> Attn: OSD Transition Services, 42 W. Madison, 3rd Floor, Chicago, IL 60602, GSR #125</div>')
+      +h3('DRS — What It Provides')
+      +card('<div style="display:grid;grid-template-columns:1fr 1fr;gap:14px"><div><div class="sub-lbl" style="color:'+CC.puns+'">During high school</div><ul style="padding-left:15px"><li style="font-size:12.5px;line-height:1.7;margin-bottom:3px;color:#6a6f80">Job placement, job shadowing, and job coaching</li><li style="font-size:12.5px;line-height:1.7;margin-bottom:3px;color:#6a6f80">On-the-job supports and career education</li><li style="font-size:12.5px;line-height:1.7;margin-bottom:3px;color:#6a6f80">Transition assessments and independent living skills training</li><li style="font-size:12.5px;line-height:1.7;color:#6a6f80">Transportation assistance and assistive technology</li></ul></div><div><div class="sub-lbl" style="color:'+CC.puns+'">After graduation</div><ul style="padding-left:15px"><li style="font-size:12.5px;line-height:1.7;margin-bottom:3px;color:#6a6f80">Transition to an adult DRS counselor</li><li style="font-size:12.5px;line-height:1.7;margin-bottom:3px;color:#6a6f80">Continued employment and postsecondary planning</li><li style="font-size:12.5px;line-height:1.7;color:#6a6f80">Financial assistance with college or vocational training (for qualified students)</li></ul></div></div>')
+      +h3('ISC Agencies — Chicago')
+      +card('<p style="font-size:13px;color:#6a6f80;margin-bottom:12px">Your ISC Agency is determined by where you live relative to Roosevelt Road.</p>'
+        +'<div class="isc-grid"><div class="isc-card n"><div class="isc-dir">North of Roosevelt Road</div><h4>Community Alternatives Unlimited</h4><p>8765 W Higgins Rd, 3rd Floor, Chicago, IL 60631</p><p><strong>Phone:</strong> 773.867.4000 · TTY: 773.867.4168</p><p>www.cau.org</p></div><div class="isc-card s"><div class="isc-dir">South of Roosevelt Road</div><h4>Community Service Options</h4><p>6845 S. Western Ave, Chicago, IL 60636</p><p><strong>Phone:</strong> 888.276.4467 · TTY: 773.884.1002</p><p>www.cso1.org</p></div></div>')
+      +h3('Key Contacts — PUNS & DRS')+contactsGroup('puns');
+  } else {
+    return secHeader('PUNS — Cómo Ingresar a la Lista de Espera','Priorización de Urgencia para la Necesidad de Servicios · Administrado por IDHS Illinois',CC.puns)
+      +alert_('PUNS requiere una actualización anual. Si no actualiza la inscripción de su estudiante cada año, puede perder su lugar en la lista de espera.')
+      +card('<div class="h4">¿Qué es PUNS?</div><p style="font-size:13.5px;color:#6a6f80;line-height:1.75">PUNS es la lista de espera oficial de Illinois para servicios de discapacidad del desarrollo para adultos. Existen dos categorías: <strong>Búsqueda de Servicios</strong> (elegible para selección cuando haya fondos) y <strong>Planificación de Servicios</strong> (no elegible). Las familias deben inscribirse en Búsqueda de Servicios. Las listas pueden durar varios años; la inscripción puede comenzar desde los 2½ años de edad.</p>')
+      +h3('Requisitos de Elegibilidad para PUNS')
+      +card('<div class="elig-grid">'
+        +'<div class="elig-item"><span class="elig-ck">✓</span><span>Ciudadano de EE.UU. o no ciudadano legal</span></div>'
+        +'<div class="elig-item"><span class="elig-ck">✓</span><span>Residente de Illinois</span></div>'
+        +'<div class="elig-item"><span class="elig-ck">✓</span><span>18 años o más</span></div>'
+        +'<div class="elig-item"><span class="elig-ck">✓</span><span>Inscrito en Medicaid</span></div>'
+        +'<div class="elig-item"><span class="elig-ck">✓</span><span>Completar evaluación de Determinación de Necesidad (DON)</span></div>'
+        +'<div class="elig-item"><span class="elig-ck">✓</span><span>No requiere atención de enfermería las 24 horas</span></div>'
+        +'<div class="elig-item"><span class="elig-ck">✓</span><span>Puede mantenerse de manera segura en el hogar o en la comunidad</span></div>'
+        +'<div class="elig-item"><span class="elig-ck">✓</span><span>Tiene una discapacidad intelectual o del desarrollo</span></div>'
+        +'</div>')
+      +h3('Definición de Discapacidad del Desarrollo')
+      +card('<div class="h4">Una condición calificativa debe ser una de las siguientes:</div>'
+        +'<div class="dd-chips"><span class="dd-chip">Coeficiente intelectual menor de 70</span><span class="dd-chip">Parálisis Cerebral</span><span class="dd-chip">Epilepsia</span><span class="dd-chip">Autismo</span><span class="dd-chip">Lesión Cerebral Traumática</span></div>'
+        +'<div class="h4">Y debe resultar en limitaciones sustanciales en 3 o más de estas áreas:</div>'
+        +'<div class="func-grid"><div class="func-item">Autocuidado</div><div class="func-item">Auto-dirección</div><div class="func-item">Lenguaje</div><div class="func-item">Aprendizaje</div><div class="func-item">Movilidad</div><div class="func-item">Vida Independiente</div></div>'
+        +'<div class="note-box"><strong>Importante:</strong> El inicio de la discapacidad debe ocurrir antes de los 22 años para calificar.</div>')
+      +h3('Exención HCBS — A Qué Conduce PUNS')
+      +card('<p style="font-size:13px;color:#6a6f80;line-height:1.75;margin-bottom:14px">Cuando se selecciona desde PUNS, los individuos reciben acceso a la Exención de Servicios Comunitarios y en el Hogar (HCBS). Esto proporciona un presupuesto mensual — no efectivo — para comprar servicios que ayudan a vivir de manera segura en casa o en la comunidad.</p>'
+        +'<div class="waiver-row"><div class="waiver-box child"><h4>Exención para Niños</h4><div class="waiver-amt c">$1,934<span style="font-size:14px;">/mes</span></div><div class="waiver-sub">2× el monto anual del SSI</div></div><div class="waiver-box adult"><h4>Exención para Adultos</h4><div class="waiver-amt a">$2,901<span style="font-size:14px;">/mes</span></div><div class="waiver-sub">3× el monto anual del SSI</div></div></div>'
+        +'<div class="sub-lbl" style="color:'+CC.puns+'">Qué Puede Comprar la Exención HCBS</div>'
+        +'<div class="svc-grid"><div class="svc-chip">Equipo Adaptativo</div><div class="svc-chip">Tecnología de Asistencia</div><div class="svc-chip">Intervención del Comportamiento</div><div class="svc-chip">Servicios Comunitarios Diurnos</div><div class="svc-chip">Modificaciones del Hogar</div><div class="svc-chip">Transporte No Médico</div><div class="svc-chip">Trabajador de Apoyo Personal</div><div class="svc-chip">Habilitación Residencial</div><div class="svc-chip">Empleo con Apoyo</div><div class="svc-chip">Modificación de Vehículo</div></div>')
+      +h3('Qué Hacer Primero')
+      +step(1,'Inscribirse desde los 2½ años a través de su Agencia ISC local','La inscripción en PUNS se realiza a través de una Agencia ISC — no llamando directamente a IDHS. Las familias de Chicago son atendidas por una de dos agencias según su dirección en relación con Roosevelt Road.')
+      +step(2,'Completar la Evaluación de Pre-Admisión (PAS)','La PAS determina la elegibilidad y documenta las necesidades de su estudiante. La lleva a cabo su Agencia ISC.')
+      +step(3,'Inscribirse en la categoría de Búsqueda de Servicios','Las familias deben inscribirse en Búsqueda de Servicios — no en Planificación de Servicios — para ser elegibles para selección.')
+      +step(4,'Contactar a UCP Seguin para apoyo gratuito en la transición','Los TOS de UCP Seguin brindan apoyo gratuito — orientación sobre PUNS, elegibilidad, empleo y coaching familiar. Personal bilingüe. Llame al 708.863.3803.')
+      +step(5,'Solicitar una derivación a DRS (comenzar a los 14 años)','La derivación a DRS debe comenzar a los 14 años para estudiantes inscritos en la escuela secundaria. CPS Transición: 773-553-1851.')
+      +h3('Agencias ISC — Chicago')
+      +card('<p style="font-size:13px;color:#6a6f80;margin-bottom:12px">Su Agencia ISC se determina por dónde vive en relación con Roosevelt Road.</p>'
+        +'<div class="isc-grid"><div class="isc-card n"><div class="isc-dir">Al Norte de Roosevelt Road</div><h4>Community Alternatives Unlimited</h4><p>8765 W Higgins Rd, 3rd Floor, Chicago, IL 60631</p><p><strong>Tel:</strong> 773.867.4000 · TTY: 773.867.4168</p><p>www.cau.org</p></div><div class="isc-card s"><div class="isc-dir">Al Sur de Roosevelt Road</div><h4>Community Service Options</h4><p>6845 S. Western Ave, Chicago, IL 60636</p><p><strong>Tel:</strong> 888.276.4467 · TTY: 773.884.1002</p><p>www.cso1.org</p></div></div>')
+      +h3('Contactos Clave — PUNS y DRS')+contactsGroup('puns');
+  }
+}
+
+function renderLegal(){
+  var lg=S.lang;
+  if(lg==='en'){
+    var rows=[['Supportive Decision-Making','Student keeps all legal rights. Trusted people help them understand decisions.','Best supports independence and self-determination.',pill('Least Restrictive',CC.puns)],['Power of Attorney (POA)','Designates someone to act on the individual\'s behalf in specific areas only.','Flexible and targeted — does not remove all rights.',''],['Special Needs Trust','Protects assets without disqualifying the individual from Medicaid or SSI.','Critical for families planning to leave an inheritance or savings.',''],['Guardianship','Full legal authority is transferred to a guardian.','Permanently removes legal rights. Consult an attorney first.',pill('Most Restrictive','#c4501e')],['Wills','Estate planning to protect long-term financial security.','Should be coordinated with Special Needs Trust planning.','']];
+    var tbl='<div style="overflow-x:auto"><table class="tbl"><thead><tr><th>Option</th><th>What It Means</th><th>Key Consideration</th></tr></thead><tbody>'+rows.map(function(r){return '<tr><td>'+e(r[0])+(r[3]?'<br><br>'+r[3]:'')+'</td><td>'+e(r[1])+'</td><td style="font-style:italic">'+e(r[2])+'</td></tr>';}).join('')+'</tbody></table></div>';
+    return secHeader('Legal Supports — Decisions Before Age 18','Many legal decisions are triggered by the student\'s 18th birthday. Begin these conversations immediately if the student is approaching 18.',CC.legal)
+      +alert_('Once a student turns 18, they become their own legal guardian unless a court has already established otherwise. Families who wait may lose critical protections.','urgent')
+      +card('<div class="h4">Legal Options — Most to Least Restrictive</div>'+tbl)
+      +card('<div class="h4">The Arc of Illinois — Free Legal Guidance &amp; Advocacy</div><p style="font-size:13.5px;color:#6a6f80;line-height:1.75">The Family Advocate Program at The Arc of Illinois provides outreach to adults and families — specifically those on the PUNS list or approaching a selection. The Family-to-Family Health Information Center supports families of youth under 22. Spanish-language services: 708.218.1958.</p>','#4a3282','left')
+      +h3('Key Contacts — Legal Supports')+contactsGroup('legal');
+  } else {
+    var rows2=[['Toma de Decisiones con Apoyo','El estudiante conserva todos los derechos legales. Personas de confianza le ayudan a comprender las decisiones.','Apoya mejor la independencia y la autodeterminación.',pill('Menos Restrictiva',CC.puns)],['Poder Notarial (POA)','Designa a alguien para actuar en nombre del individuo solo en áreas específicas.','Flexible y específico — no elimina todos los derechos.',''],['Fideicomiso para Necesidades Especiales','Protege los activos sin descalificar al individuo de Medicaid o SSI.','Crítico para familias que planean dejar una herencia o ahorros.',''],['Tutela','Se transfiere toda la autoridad legal a un tutor.','Elimina permanentemente los derechos legales. Consulte a un abogado primero.',pill('Más Restrictiva','#c4501e')],['Testamentos','Planificación patrimonial para proteger la seguridad financiera a largo plazo.','Debe coordinarse con la planificación del Fideicomiso.','']];
+    var tbl2='<div style="overflow-x:auto"><table class="tbl"><thead><tr><th>Opción</th><th>Qué Significa</th><th>Consideración Clave</th></tr></thead><tbody>'+rows2.map(function(r){return '<tr><td>'+e(r[0])+(r[3]?'<br><br>'+r[3]:'')+'</td><td>'+e(r[1])+'</td><td style="font-style:italic">'+e(r[2])+'</td></tr>';}).join('')+'</tbody></table></div>';
+    return secHeader('Apoyos Legales — Decisiones Antes de los 18 Años','Muchas decisiones legales se activan con el 18° cumpleaños del estudiante.',CC.legal)
+      +alert_('Una vez que un estudiante cumple 18 años, se convierte en su propio tutor legal, a menos que un tribunal ya haya establecido lo contrario.','urgent')
+      +card('<div class="h4">Opciones Legales — De Mayor a Menor Restricción</div>'+tbl2)
+      +card('<div class="h4">The Arc of Illinois — Orientación Legal Gratuita y Defensa</div><p style="font-size:13.5px;color:#6a6f80;line-height:1.75">El Programa de Defensores Familiares de The Arc de Illinois ofrece asistencia a adultos y familias — específicamente a quienes están en la lista PUNS o se acercan a una selección. Servicios en español: 708.218.1958.</p>','#4a3282','left')
+      +h3('Contactos Clave — Apoyos Legales')+contactsGroup('legal');
+  }
+}
+
+function renderFinancial(){
+  var lg=S.lang;
+  var bens=lg==='en'?[
+    {color:CC.financial,t:'SSI — Supplemental Security Income',d:'Monthly income for individuals with disabilities who have limited income and resources. Application should begin at or before age 18.'},
+    {color:CC.puns,t:'ABLE Account',d:'Tax-advantaged savings account — save without losing SSI or Medicaid eligibility. Disability onset must be before age 26. Open now to preserve this benefit.'},
+    {color:CC.hsp,t:'Medicaid / Medicare',d:'Health coverage linked to SSI/SSDI enrollment. Medicaid also funds adult day programs and home-based services. Coordinate enrollment with the SSI application.'},
+    {color:CC.recreation,t:'SNAP / Cash Benefits',d:'Food and financial assistance through IDHS. Eligibility is often linked to SSI status. Contact your local IDHS Family Community Resource Center (FCRC).'}
+  ]:[
+    {color:CC.financial,t:'SSI — Ingreso de Seguridad Suplementario',d:'Ingreso mensual para personas con discapacidades con ingresos y recursos limitados. La solicitud debe comenzar antes o al cumplir los 18 años.'},
+    {color:CC.puns,t:'Cuenta ABLE',d:'Cuenta de ahorro con ventajas fiscales — ahorre sin perder elegibilidad para SSI o Medicaid. El inicio de la discapacidad debe ser antes de los 26 años.'},
+    {color:CC.hsp,t:'Medicaid / Medicare',d:'Cobertura de salud vinculada a SSI/SSDI. Medicaid también financia programas de día para adultos y servicios en el hogar.'},
+    {color:CC.recreation,t:'SNAP / Beneficios en Efectivo',d:'Asistencia alimentaria y financiera a través de IDHS. La elegibilidad está a menudo vinculada al SSI.'}
+  ];
+  var title=lg==='en'?'Financial Supports — What Your Student May Be Entitled To':'Apoyos Financieros — A Qué Puede Tener Derecho Su Estudiante';
+  var grid='<div class="grid-2">'+bens.map(function(b){return '<div class="card" style="border-top:3px solid '+b.color+';margin-bottom:0"><div style="font-weight:600;font-size:13.5px;color:'+b.color+';margin-bottom:6px">'+e(b.t)+'</div><p style="font-size:13px;color:#6a6f80;line-height:1.7;margin:0">'+e(b.d)+'</p></div>';}).join('')+'</div>';
+  var cl=lg==='en'?'Key Contacts — Financial Supports':'Contactos Clave — Apoyos Financieros';
+  return secHeader(title,'',CC.financial)+grid+h3(cl)+contactsGroup('financial');
+}
+
+function renderCollege(){
+  var lg=S.lang;
+  if(lg==='en'){
+    return secHeader('College Financial Contribution — Division of Rehabilitation Services (DRS)','DRS can contribute funding toward postsecondary education and vocational training for qualified individuals with disabilities.',CC.college)
+      +alert_('The financial contribution is based on total cost at an Illinois institution and is reduced by any financial aid, scholarships, or grants available to the student. Students must have an active DRS case before requesting college funding.','info')
+      +card('<div class="h4">Funding Amounts by Program Type</div><div style="overflow-x:auto;margin-top:8px"><table class="tbl"><thead><tr><th>Program Type</th><th>Per Academic Year</th><th>Per Semester</th><th>Per Credit Hour</th></tr></thead><tbody><tr><td>4-Year College / University</td><td class="tbl-amt">$16,822</td><td class="tbl-amt">$8,011</td><td class="tbl-amt">$650</td></tr><tr><td>Non-Degree (CDL, Trade, Cosmetology, etc.)</td><td class="tbl-amt">$6,000</td><td class="tbl-amt">$3,000</td><td class="tbl-amt">$200</td></tr></tbody></table></div>'
+        +'<ul style="padding-left:15px;margin-top:14px"><li style="font-size:12.5px;line-height:1.7;color:#6a6f80;margin-bottom:3px">DRS allows up to 3 years to complete an Associate\'s degree.</li><li style="font-size:12.5px;line-height:1.7;color:#6a6f80;margin-bottom:3px">DRS allows up to 3 additional years beyond that to complete a Bachelor\'s degree.</li><li style="font-size:12.5px;line-height:1.7;color:#6a6f80">Training must lead toward competitive integrated employment to qualify.</li></ul>')
+      +card('<div class="h4" style="color:#0e5c40">Illinois Community College Initiative (CCI)</div>'
+        +'<p style="font-size:13px;color:#6a6f80;line-height:1.75;margin-bottom:10px">CCI is designed to increase enrollment of people with disabilities at Illinois community colleges. It is comparable to the Chicago Star Scholarship — but does not require a 3.0 GPA.</p>'
+        +'<ul style="padding-left:15px"><li style="font-size:12.5px;line-height:1.7;color:#6a6f80;margin-bottom:4px">Students enrolled through CCI are <strong>exempt from DRS financial participation requirements</strong>.</li><li style="font-size:12.5px;line-height:1.7;color:#6a6f80;margin-bottom:4px">Funding covers tuition, books, fees, and supplies — without needing to meet DRS income guidelines.</li><li style="font-size:12.5px;line-height:1.7;color:#6a6f80">DRS allows up to 3 years to complete an Associate\'s degree under CCI.</li></ul>','#0e5c40','left');
+  } else {
+    return secHeader('Contribución Financiera para la Universidad — División de Servicios de Rehabilitación (DRS)','DRS puede contribuir fondos para la educación postsecundaria y la capacitación vocacional para personas calificadas con discapacidades.',CC.college)
+      +alert_('La contribución financiera se basa en el costo total en una institución de Illinois y se reduce por cualquier ayuda financiera, becas o subvenciones disponibles. Los estudiantes deben tener un caso activo con DRS antes de solicitar fondos.','info')
+      +card('<div class="h4">Montos por Tipo de Programa</div><div style="overflow-x:auto;margin-top:8px"><table class="tbl"><thead><tr><th>Tipo de Programa</th><th>Por Año Académico</th><th>Por Semestre</th><th>Por Hora de Crédito</th></tr></thead><tbody><tr><td>Universidad de 4 años</td><td class="tbl-amt">$16,822</td><td class="tbl-amt">$8,011</td><td class="tbl-amt">$650</td></tr><tr><td>Sin Grado (CDL, Oficio, Cosmetología, etc.)</td><td class="tbl-amt">$6,000</td><td class="tbl-amt">$3,000</td><td class="tbl-amt">$200</td></tr></tbody></table></div>'
+        +'<ul style="padding-left:15px;margin-top:14px"><li style="font-size:12.5px;line-height:1.7;color:#6a6f80;margin-bottom:3px">DRS permite hasta 3 años para completar un título de Asociado.</li><li style="font-size:12.5px;line-height:1.7;color:#6a6f80;margin-bottom:3px">DRS permite hasta 3 años adicionales para completar un título de Bachiller.</li><li style="font-size:12.5px;line-height:1.7;color:#6a6f80">La capacitación debe conducir al empleo integrado competitivo para calificar.</li></ul>')
+      +card('<div class="h4" style="color:#0e5c40">Iniciativa de Colegios Comunitarios de Illinois (CCI)</div>'
+        +'<p style="font-size:13px;color:#6a6f80;line-height:1.75;margin-bottom:10px">El CCI está diseñado para aumentar la inscripción de personas con discapacidades en los colegios comunitarios de Illinois. Es comparable a la Beca Chicago Star — pero no requiere un GPA de 3.0.</p>'
+        +'<ul style="padding-left:15px"><li style="font-size:12.5px;line-height:1.7;color:#6a6f80;margin-bottom:4px">Los estudiantes del CCI están <strong>exentos de los requisitos de participación financiera de DRS</strong>.</li><li style="font-size:12.5px;line-height:1.7;color:#6a6f80;margin-bottom:4px">Los fondos cubren matrícula, libros, cuotas y materiales — sin cumplir las pautas de ingresos de DRS.</li><li style="font-size:12.5px;line-height:1.7;color:#6a6f80">DRS permite hasta 3 años para completar un título de Asociado bajo el CCI.</li></ul>','#0e5c40','left');
+  }
+}
+
+function renderPrograms(){
+  var lg=S.lang;
+  var progs=[
+    {name:'After 22',place:'Daley College, Chicago'},
+    {name:'PACE',place:'National Louis University'},
+    {name:'Blackburn and Beyond',place:'Blackburn University, Carlinville, IL'},
+    {name:'ELSA',place:'Elmhurst University, Elmhurst, IL'},
+    {name:'RISE UP',place:'Judson University, Elgin, IL'},
+    {name:'Supported College Transition',place:'Lewis and Clark University, Godfrey, IL'},
+    {name:'RAISE Program',place:'Rock Valley College, Rockford, IL'}
+  ];
+  if(lg==='en'){
+    return secHeader('Comprehensive College & Postsecondary Transition Programs','These Illinois programs are specifically designed to support students with intellectual and developmental disabilities in postsecondary settings.',CC.programs)
+      +alert_('DRS may be able to fund participation in these programs. Students should have an active DRS case and discuss postsecondary goals with their DRS counselor before applying.','info')
+      +card('<div class="prog-grid">'+progs.map(function(p){return '<div class="prog-card"><h4>'+e(p.name)+'</h4><p>'+e(p.place)+'</p></div>';}).join('')+'</div>'
+        +'<p style="font-size:12px;color:#6a6f80;margin-top:12px">Contact your student\'s transition coordinator or DRS counselor to learn which program may be the best fit for your student\'s goals and disability profile.</p>');
+  } else {
+    return secHeader('Programas de Transición Universitaria y Postsecundaria','Estos programas en Illinois están diseñados específicamente para apoyar a estudiantes con discapacidades intelectuales y del desarrollo en entornos postsecundarios.',CC.programs)
+      +alert_('DRS puede financiar la participación en estos programas. Los estudiantes deben tener un caso activo con DRS y hablar sobre sus metas postsecundarias con su consejero de DRS antes de solicitar.','info')
+      +card('<div class="prog-grid">'+progs.map(function(p){return '<div class="prog-card"><h4>'+e(p.name)+'</h4><p>'+e(p.place)+'</p></div>';}).join('')+'</div>'
+        +'<p style="font-size:12px;color:#6a6f80;margin-top:12px">Comuníquese con el coordinador de transición de su estudiante o el consejero de DRS para saber qué programa puede ser el más adecuado.</p>');
+  }
+}
+
+function renderHsp(){
+  var lg=S.lang;
+  if(lg==='en'){
+    return secHeader('Home Services Program (HSP) — In-Home Support for Daily Living','Administered by IDHS Division of Rehabilitation Services · For individuals ages 18–59 with severe disabilities',CC.hsp)
+      +card('<p style="font-size:13.5px;color:#6a6f80;line-height:1.75">HSP provides in-home support so individuals with severe disabilities can remain at home. For students who turn 18 and require significant physical support, HSP is a critical program to pursue alongside PUNS enrollment. Note: HSP and PUNS are distinct — HSP supports daily functioning at home; PUNS leads to broader community-based waiver services.</p>')
+      +'<div class="grid-2">'
+      +card('<div class="sub-lbl" style="color:'+CC.hsp+'">Who Is Eligible?</div><ul style="padding-left:14px"><li style="font-size:12.5px;line-height:1.7;margin-bottom:4px;color:#6a6f80">Ages 18–59 (exceptions for TBI or HIV/AIDS)</li><li style="font-size:12.5px;line-height:1.7;margin-bottom:4px;color:#6a6f80">Illinois resident with U.S. citizenship or proof of legal entry</li><li style="font-size:12.5px;line-height:1.7;margin-bottom:4px;color:#6a6f80">Active Medicaid enrollment required</li><li style="font-size:12.5px;line-height:1.7;margin-bottom:4px;color:#6a6f80">Severe disability expected to last at least 12 months</li><li style="font-size:12.5px;line-height:1.7;margin-bottom:4px;color:#6a6f80">Must pass the DON assessment</li><li style="font-size:12.5px;line-height:1.7;color:#6a6f80">Non-exempt assets below $17,500 individual / $35,000 family</li></ul>')
+      +card('<div class="sub-lbl" style="color:'+CC.hsp+'">Services Provided</div><div style="margin-bottom:9px;padding-bottom:9px;border-bottom:1px solid #dbd5c8"><div style="font-weight:600;font-size:12.5px">Personal Assistant (PA)</div><div style="font-size:12px;color:#6a6f80;line-height:1.6">Household tasks, personal care, and health procedures. The student selects, employs, and supervises their own PA.</div></div><div style="margin-bottom:9px;padding-bottom:9px;border-bottom:1px solid #dbd5c8"><div style="font-weight:600;font-size:12.5px">Homemaker Services</div><div style="font-size:12px;color:#6a6f80;line-height:1.6">Professionally supervised personal care for individuals unable to direct a PA independently.</div></div><div><div style="font-weight:600;font-size:12.5px">Maintenance Home Health</div><div style="font-size:12px;color:#6a6f80;line-height:1.6">Nursing care and physical, occupational, and speech therapy prescribed by a physician.</div></div>')
+      +'</div>'
+      +card('<div class="h4">How to Apply</div><p style="font-size:13.5px;color:#6a6f80;line-height:1.75">Apply online at www.dhs.state.il.us or in person at the nearest DRS office. A DRS counselor will schedule an in-home visit to administer the DON assessment and, if eligible, develop a person-centered service plan.</p>')
+      +h3('Key Contacts — Home Services Program')+contactsGroup('hsp');
+  } else {
+    return secHeader('Programa de Servicios en el Hogar (HSP)','Administrado por la División de Servicios de Rehabilitación de IDHS · Para personas de 18 a 59 años',CC.hsp)
+      +card('<p style="font-size:13.5px;color:#6a6f80;line-height:1.75">El HSP brinda apoyo en el hogar para que personas con discapacidades severas puedan permanecer en casa. Nota: HSP y PUNS son distintos — HSP apoya el funcionamiento diario en el hogar; PUNS conduce a servicios comunitarios más amplios.</p>')
+      +'<div class="grid-2">'
+      +card('<div class="sub-lbl" style="color:'+CC.hsp+'">¿Quién es Elegible?</div><ul style="padding-left:14px"><li style="font-size:12.5px;line-height:1.7;margin-bottom:4px;color:#6a6f80">Edades de 18 a 59 años (excepciones para LCT o VIH/SIDA)</li><li style="font-size:12.5px;line-height:1.7;margin-bottom:4px;color:#6a6f80">Residente de Illinois con ciudadanía o entrada legal</li><li style="font-size:12.5px;line-height:1.7;margin-bottom:4px;color:#6a6f80">Inscripción activa en Medicaid</li><li style="font-size:12.5px;line-height:1.7;margin-bottom:4px;color:#6a6f80">Discapacidad severa que durará al menos 12 meses</li><li style="font-size:12.5px;line-height:1.7;margin-bottom:4px;color:#6a6f80">Debe pasar la evaluación DON</li><li style="font-size:12.5px;line-height:1.7;color:#6a6f80">Activos no exentos por debajo de $17,500 individual / $35,000 familiar</li></ul>')
+      +card('<div class="sub-lbl" style="color:'+CC.hsp+'">Servicios Proporcionados</div><div style="margin-bottom:9px;padding-bottom:9px;border-bottom:1px solid #dbd5c8"><div style="font-weight:600;font-size:12.5px">Asistente Personal (PA)</div><div style="font-size:12px;color:#6a6f80;line-height:1.6">Tareas domésticas, cuidado personal y procedimientos de salud. El estudiante selecciona y supervisa a su propio PA.</div></div><div><div style="font-weight:600;font-size:12.5px">Salud en el Hogar de Mantenimiento</div><div style="font-size:12px;color:#6a6f80;line-height:1.6">Atención de enfermería y terapia prescrita por un médico.</div></div>')
+      +'</div>'
+      +h3('Contactos Clave — Programa de Servicios en el Hogar')+contactsGroup('hsp');
+  }
+}
+
+function renderTransport(){
+  var lg=S.lang;
+  var stats=lg==='en'?[{l:'Rider Fare',v:'$3.25/trip'},{l:'Pace Subsidy',v:'Up to $30'},{l:'Monthly Cap',v:'30 trips'},{l:'Enrollment',v:'~2 weeks'}]:[{l:'Tarifa del Usuario',v:'$3.25/viaje'},{l:'Subsidio de Pace',v:'Hasta $30'},{l:'Límite Mensual',v:'30 viajes'},{l:'Inscripción',v:'~2 semanas'}];
+  var statsHtml='<div class="stats-row">'+stats.map(function(s){return '<div class="stat-box"><div class="stat-val">'+e(s.v)+'</div><div class="stat-lbl">'+e(s.l)+'</div></div>';}).join('')+'</div>';
+  if(lg==='en'){
+    return secHeader('Transportation — Pace Rideshare Access Program (RAP)','Flexible, subsidized rideshare access for RTA-certified ADA Paratransit riders · Launched March 2024',CC.transport)
+      +card('<p style="font-size:13.5px;color:#6a6f80;line-height:1.75;margin-bottom:14px">Pace RAP provides RTA-certified ADA Paratransit riders with flexible, subsidized rideshare access via Uber or UZURV. Rider fare is $3.25 per trip, capped at 30 trips per month, with Pace subsidizing up to $30.00 per trip. Unlike traditional Paratransit, RAP does not require advance booking.</p>'+statsHtml)
+      +step(1,'Confirm RTA-certified status and set up a rideshare account','Confirm RTA-certified (not just ADA-eligible) status and that certification does not expire in the next 3 months. Set up an active Uber or UZURV account.')
+      +step(2,'Complete the RAP enrollment form at PaceBus.com/RAP','Pace approves in approximately 2 weeks. Email RAP@PaceBus.com for questions.')
+      +step(3,'Book rides and monitor monthly usage','The RAP subsidy appears as a voucher in the app. Only trips within ¾ mile of a Pace or CTA fixed route qualify.')
+      +alert_('Enrolling in RAP automatically terminates TAP enrollment. As of October 1, 2025, ADA-certified riders ride free on all Pace fixed routes, CTA, and Metra.','urgent')
+      +h3('Key Contacts — Transportation')+contactsGroup('transport');
+  } else {
+    return secHeader('Transporte — Programa de Acceso a Viajes Compartidos de Pace (RAP)','Acceso flexible y subsidiado para usuarios certificados de Paratránsito ADA · Lanzado en marzo de 2024',CC.transport)
+      +card('<p style="font-size:13.5px;color:#6a6f80;line-height:1.75;margin-bottom:14px">El RAP brinda acceso flexible vía Uber o UZURV. La tarifa es de $3.25 por viaje, limitado a 30 viajes por mes, con Pace subsidiando hasta $30.00 por viaje.</p>'+statsHtml)
+      +step(1,'Confirmar el estado certificado por RTA y configurar una cuenta','Confirme que la certificación no venza en los próximos 3 meses. Configure una cuenta de Uber o UZURV.')
+      +step(2,'Completar el formulario de inscripción en PaceBus.com/RAP','Pace aprueba en aproximadamente 2 semanas. Envíe un correo a RAP@PaceBus.com para preguntas.')
+      +step(3,'Reservar viajes y monitorear el uso mensual','Solo los viajes dentro de ¾ de milla de una ruta fija de Pace o CTA califican.')
+      +alert_('Inscribirse en RAP termina automáticamente la inscripción en TAP. A partir del 1 de octubre de 2025, los usuarios certificados por ADA viajan gratis en todas las rutas fijas.','urgent')
+      +h3('Contactos Clave — Transporte')+contactsGroup('transport');
+  }
+}
+
+function renderRecreation(){
+  var lg=S.lang;
+  var parks=CONTACTS.filter(function(c){return c.cat==='recreation';});
+  var tblH=lg==='en'?['Park','Address','Coordinator','Phone']:['Parque','Dirección','Coordinador/a','Teléfono'];
+  var tbl='<div style="overflow-x:auto"><table class="tbl"><thead><tr>'+tblH.map(function(h){return '<th>'+e(h)+'</th>';}).join('')+'</tr></thead><tbody>'+parks.map(function(p){var coord=p.note?p.note.replace('Coordinator: ',''):'';return '<tr><td>'+e(p.name.replace(' — Special Recreation',''))+'</td><td>'+e(p.address||'')+'</td><td>'+e(coord)+'</td><td>'+e(p.phone||'')+'</td></tr>';}).join('')+'</tbody></table></div>';
+  if(lg==='en'){
+    return secHeader('Recreation — Chicago Park District Special Recreation','Structured social and recreational programs · 21 designated locations citywide',CC.recreation)
+      +card('<p style="font-size:13.5px;color:#6a6f80;line-height:1.75">The Chicago Park District operates Special Recreation programs at 21 locations for individuals with cognitive and developmental disabilities. These programs support community integration — a core IDEA transition outcome.</p>')
+      +alert_('Community integration through recreation is a core IDEA transition outcome. Including recreational programming in transition planning supports quality of life and postsecondary independence goals.','info')
+      +card('<div class="sub-lbl" style="color:'+CC.recreation+'">Nearby Parks — Chicago Special Recreation</div>'+tbl);
+  } else {
+    return secHeader('Recreación — Recreación Especial del Distrito de Parques de Chicago','Programas recreativos estructurados · 21 ubicaciones designadas en la ciudad',CC.recreation)
+      +card('<p style="font-size:13.5px;color:#6a6f80;line-height:1.75">El Distrito de Parques de Chicago opera programas de Recreación Especial en 21 ubicaciones. Estos programas apoyan la integración comunitaria — un resultado fundamental de transición bajo IDEA.</p>')
+      +alert_('La integración comunitaria a través de la recreación es un resultado fundamental de transición bajo IDEA.','info')
+      +card('<div class="sub-lbl" style="color:'+CC.recreation+'">Parques Cercanos — Recreación Especial de Chicago</div>'+tbl);
+  }
+}
+
+function renderCommunity(){
+  var lg=S.lang;
+  if(lg==='en'){
+    return secHeader('Community Access — IBCCES Accessibility Card (IAC)','Free digital card that streamlines accommodation requests at participating attractions nationwide',CC.community)
+      +card('<p style="font-size:13.5px;color:#6a6f80;line-height:1.75">The IAC streamlines accommodation requests at participating attractions. Rather than explaining a student\'s disability at each venue, the IAC provides a pre-verified record. The IAC does not guarantee specific accommodations — all remain at the sole discretion of each attraction.</p>')
+      +step(1,'Create a free account at accessibilitycard.org','Or download the IBCCES app (Apple App Store and Google Play).')
+      +step(2,'Upload documentation','Upload a recent photo of the cardholder and the student\'s IEP (accepted in place of a medical provider statement).')
+      +step(3,'Apply at least 48 hours before each planned visit','Processing can take up to 48 hours. Present the digital card at Guest Services upon arrival.')
+      +step(4,'Renew annually','The card expires one year from the registration date. Set a reminder to maintain uninterrupted access.');
+  } else {
+    return secHeader('Acceso Comunitario — Tarjeta de Accesibilidad IBCCES (IAC)','Tarjeta digital gratuita que simplifica las solicitudes de acomodación en atracciones participantes en todo el país',CC.community)
+      +card('<p style="font-size:13.5px;color:#6a6f80;line-height:1.75">La IAC simplifica las solicitudes de acomodación. La IAC no garantiza acomodaciones específicas — todas quedan a discreción de cada atracción.</p>')
+      +step(1,'Crear una cuenta gratuita en accessibilitycard.org','O descargue la aplicación IBCCES (Apple App Store y Google Play).')
+      +step(2,'Subir documentación','Suba una foto reciente y el IEP del estudiante (aceptado en lugar de declaración médica).')
+      +step(3,'Solicitar al menos 48 horas antes de cada visita','El procesamiento puede tomar hasta 48 horas.')
+      +step(4,'Renovar anualmente','La tarjeta vence un año después del registro.');
+  }
+}
+
+function renderChecklist(){
+  var lg=S.lang;
+  var data=CL[lg];
+  var str=STR[lg];
+  var total=data.reduce(function(s,g){return s+g.items.length;},0);
+  var done=Object.keys(S.checked).filter(function(k){return S.checked[k];}).length;
+  var pct=total>0?Math.round((done/total)*100):0;
+  var title=lg==='en'?'Age-Based Action Checklist':'Lista de Acciones por Edad';
+  var sub=lg==='en'?'Use during family meetings to track transition milestones. Click any item to mark it complete.':'Use durante las reuniones familiares. Haga clic en cualquier elemento para marcarlo como completado.';
+  var html=secHeader(title,sub,'#c4501e');
+  html+='<div class="card" style="display:flex;align-items:center;gap:16px;margin-bottom:22px"><div style="flex:1"><div style="font-size:11.5px;color:#6a6f80;margin-bottom:5px">'+str.progress+': '+done+' / '+total+'</div><div class="progress-bar-wrap"><div class="progress-bar-fill" style="width:'+pct+'%"></div></div></div><button onclick="resetChecklist()" style="font-family:\'IBM Plex Sans\',sans-serif;font-size:11.5px;color:#c4501e;background:none;border:1px solid #e8b49e;border-radius:4px;padding:4px 11px;cursor:pointer">'+str.reset+'</button></div>';
+  data.forEach(function(group,gi){
+    html+='<div style="margin-bottom:22px"><div class="cl-group-head" style="border-color:'+group.color+'"><span class="cl-group-age" style="color:'+group.color+'">'+e(group.age)+'</span><span class="cl-group-sub">'+e(group.sub)+'</span></div>';
+    group.items.forEach(function(item,ii){
+      var key=gi+'-'+ii;
+      var isDone=!!S.checked[key];
+      var isUrgent=item.u;
+      var borderLeftColor=isDone?'#888':(isUrgent?'#c4501e':group.color);
+      var cls='cl-item'+(isDone?' done':'')+(isUrgent&&!isDone?' urgent':'');
+      html+='<div class="'+cls+'" style="border-left:3px solid '+borderLeftColor+'" onclick="toggleCheck(\''+key+'\')">'+'<div class="cl-check'+(isDone?' checked':'')+'" style="color:'+group.color+'">'+(isDone?'✓':'')+'</div>'+'<span class="cl-text">'+e(item.t)+'</span>'+(isUrgent&&!isDone?'<span class="cl-urgent-badge">'+str.urgentBadge+'</span>':'')+'</div>';
+    });
+    html+='</div>';
+  });
+  return html;
+}
+
+function renderContacts(){
+  var lg=S.lang;
+  var str=STR[lg];
+  var title=lg==='en'?'Contacts Directory':'Directorio de Contactos';
+  var sub=lg==='en'?'All contacts from this guide — searchable and filterable by program area.':'Todos los contactos de esta guía — buscables y filtrables por área de programa.';
+  var cats=Object.keys(CM[lg]);
+  var opts='<option value="">'+e(str.allCats)+'</option>'+cats.map(function(c){return '<option value="'+c+'">'+e(CM[lg][c])+'</option>';}).join('');
+  var html=secHeader(title,sub,'#c4501e');
+  html+='<div style="display:flex;gap:9px;margin-bottom:16px;flex-wrap:wrap"><input id="contacts-search" type="text" placeholder="'+e(str.search)+'" oninput="filterContacts()" style="flex:1 1 180px"><select id="contacts-filter" onchange="filterContacts()">'+opts+'</select></div>';
+  html+='<div id="contacts-list">'+buildContactsList('','')+'</div>';
+  return html;
+}
+
+function buildContactsList(q,cat){
+  var lg=S.lang;
+  var list=CONTACTS.filter(function(c){var ms=!q||c.name.toLowerCase().indexOf(q.toLowerCase())>=0||(c.phone&&c.phone.indexOf(q)>=0)||(c.address&&c.address.toLowerCase().indexOf(q.toLowerCase())>=0);var mc=!cat||c.cat===cat;return ms&&mc;});
+  if(!list.length)return '<div style="text-align:center;padding:40px;color:#6a6f80;font-size:13.5px">'+e(STR[lg].noResults)+'</div>';
+  return list.map(function(ct){var d='';if(ct.phone)d+='<span>📞 '+e(ct.phone)+'</span>';if(ct.tollFree)d+='<span>📞 TF: '+e(ct.tollFree)+'</span>';if(ct.tty)d+='<span>TTY: '+e(ct.tty)+'</span>';if(ct.spanish)d+='<span>🌎 Español: '+e(ct.spanish)+'</span>';if(ct.email)d+='<span>✉️ '+e(ct.email)+'</span>';if(ct.web)d+='<span>🌐 '+e(ct.web)+'</span>';if(ct.address)d+='<span>📍 '+e(ct.address)+'</span>';if(ct.hours)d+='<span>🕐 '+e(ct.hours)+'</span>';if(ct.note)d+='<span style="font-style:italic">'+e(ct.note)+'</span>';return '<div style="background:#fff;border-radius:6px;padding:12px 15px;border:1px solid #dbd5c8;border-left:3px solid '+CC[ct.cat]+';margin-bottom:7px"><div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:6px"><div style="font-weight:600;font-size:13.5px;color:#1a1e2a">'+e(ct.name)+'</div>'+pill(CM[lg][ct.cat],CC[ct.cat])+'</div><div style="display:flex;flex-wrap:wrap;gap:4px 13px;font-size:12px;color:#6a6f80">'+d+'</div></div>';}).join('');
+}
+
+var RENDERERS={overview:renderOverview,idea:renderIdea,puns:renderPuns,legal:renderLegal,financial:renderFinancial,college:renderCollege,programs:renderPrograms,hsp:renderHsp,transport:renderTransport,recreation:renderRecreation,community:renderCommunity,justice:renderJustice,checklist:renderChecklist,contacts:renderContacts};
+
+function renderJustice(){
+  var lg=S.lang;
+  var isEn=lg==='en';
+  var title=isEn?'10 · Justice-Involved Students':'10 · Estudiantes con Involucramiento Judicial';
+  var sub=isEn?'How detention and incarceration affect the services in this guide — and what to do.':'Cómo la detención y el encarcelamiento afectan los servicios de esta guía — y qué hacer.';
+  var html=secHeader(title,sub,'#7a1a2e');
+
+  html+=alert_(isEn
+    ?'This section addresses what happens to PUNS, Medicaid, DRS, and IEP services when a student with a disability is detained or incarcerated. All information reflects Illinois law as of May 2026. Contact your ISC agency and a qualified attorney for guidance specific to your situation.'
+    :'Esta sección aborda qué sucede con los servicios de PUNS, Medicaid, DRS e IEP cuando un estudiante con discapacidad es detenido o encarcelado. Toda la información refleja la ley de Illinois a mayo de 2026. Contacte a su agencia ISC y a un abogado calificado para orientación específica a su situación.'
+  ,'info');
+
+  // ── Medicaid & HCBS Waiver ──
+  html+=h3(isEn?'Medicaid and HCBS Waiver Services':'Medicaid y Servicios de la Exención HCBS');
+  html+=card(
+    (isEn
+      ?'<p style="font-size:13.5px;line-height:1.7;color:#2c3040;margin-bottom:10px">In Illinois, Medicaid coverage is <strong>suspended — not terminated</strong> when a covered individual enters a correctional facility. This distinction matters: suspension preserves eligibility so that coverage can be reinstated upon release without a full new application. (Illinois 1115 Medicaid Waiver, approved July 2024)</p><p style="font-size:13.5px;line-height:1.7;color:#2c3040;margin-bottom:10px">Because HCBS waiver-funded services require active Medicaid enrollment and Illinois residency, those services <strong>pause during the period of incarceration</strong>. They do not disappear permanently — but they cannot be delivered while Medicaid is suspended.</p><p style="font-size:13.5px;line-height:1.7;color:#2c3040"><strong>When your child returns:</strong> Contact your ISC agency immediately before or at the point of release to begin the Medicaid reinstatement process. Do not wait. Gaps in Medicaid can delay access to waiver services and affect waitlist continuity.</p>'
+      :'<p style="font-size:13.5px;line-height:1.7;color:#2c3040;margin-bottom:10px">En Illinois, la cobertura de Medicaid se <strong>suspende — no se cancela</strong> cuando una persona cubierta ingresa a una instalación correccional. Esta distinción es importante: la suspensión preserva la elegibilidad para que la cobertura pueda restablecerse al salir sin una solicitud completamente nueva. (Exención 1115 de Medicaid de Illinois, aprobada julio 2024)</p><p style="font-size:13.5px;line-height:1.7;color:#2c3040;margin-bottom:10px">Dado que los servicios financiados por la exención HCBS requieren inscripción activa en Medicaid y residencia en Illinois, esos servicios <strong>se pausan durante el período de encarcelamiento</strong>. No desaparecen permanentemente, pero no pueden prestarse mientras Medicaid está suspendido.</p><p style="font-size:13.5px;line-height:1.7;color:#2c3040"><strong>Cuando su hijo regrese:</strong> Contacte a su agencia ISC inmediatamente antes o en el momento de la liberación para iniciar el proceso de restablecimiento de Medicaid. No espere.</p>'
+    ),'#7a1a2e','left');
+
+  // ── PUNS Waitlist ──
+  html+=h3(isEn?'PUNS Waitlist — What to Do Immediately':'Lista de Espera PUNS — Qué Hacer de Inmediato');
+  html+=card(
+    (isEn
+      ?'<p style="font-size:13.5px;line-height:1.7;color:#2c3040;margin-bottom:10px">PUNS selections are based on cumulative length of time in the <strong>Seeking Services</strong> category. What happens to that accumulated time during a period of detention is <strong>not publicly documented</strong> in Illinois DHS policy materials available as of May 2026.</p><p style="font-size:13.5px;line-height:1.7;color:#2c3040;margin-bottom:10px">Do not assume the waitlist position is automatically preserved or automatically lost. <strong>Contact your ISC agency immediately</strong> upon your child\'s detention to ask directly about PUNS status implications and your annual update obligation.</p><p style="font-size:13.5px;line-height:1.7;color:#2c3040"><strong>Critical reminder:</strong> The annual PUNS update is still required. Missing it may affect your child\'s status regardless of detention. Ask your ISC agency about how to maintain the update during this period.</p>'
+      :'<p style="font-size:13.5px;line-height:1.7;color:#2c3040;margin-bottom:10px">Las selecciones de PUNS se basan en el tiempo acumulado en la categoría de <strong>Búsqueda de Servicios</strong>. Lo que sucede con ese tiempo acumulado durante un período de detención <strong>no está documentado públicamente</strong> en los materiales de política del DHS de Illinois disponibles a mayo de 2026.</p><p style="font-size:13.5px;line-height:1.7;color:#2c3040;margin-bottom:10px">No asuma que la posición en la lista de espera se preserva o se pierde automáticamente. <strong>Contacte a su agencia ISC de inmediato</strong> al momento de la detención de su hijo para preguntar directamente sobre las implicaciones del estado de PUNS y su obligación de actualización anual.</p><p style="font-size:13.5px;line-height:1.7;color:#2c3040"><strong>Recordatorio crítico:</strong> La actualización anual de PUNS sigue siendo obligatoria. No actualizarla puede afectar el estado de su hijo independientemente de la detención.</p>'
+    ),'#7a1a2e','left');
+
+  // ── DRS ──
+  html+=h3(isEn?'Division of Rehabilitation Services (DRS)':'División de Servicios de Rehabilitación (DRS)');
+  html+=card(
+    (isEn
+      ?'<p style="font-size:13.5px;line-height:1.7;color:#2c3040;margin-bottom:10px">DRS does <strong>not</strong> have blanket eligibility restrictions for justice-involved individuals. Eligibility is based on disability and employment need — not criminal history. DRS maintains a specific <strong>Re-entry Employment Services</strong> track designed for individuals who are currently or have previously been subject to the criminal justice process.</p><p style="font-size:13.5px;line-height:1.7;color:#2c3040;margin-bottom:10px">What may be affected: some vocational placement goals facilitated by DRS — particularly in healthcare, education, or finance — involve fields where <strong>employer-side background checks</strong> are standard. Illinois law (Employee Background Fairness Act) protects against automatic disqualification and requires individualized assessment, but some barriers may remain in specific licensed professions.</p><p style="font-size:13.5px;line-height:1.7;color:#2c3040"><strong>Action:</strong> If your child has an open DRS case, contact their DRS counselor immediately upon detention to ask about case status and re-entry planning options. DRS is a resource — not a barrier — for justice-involved individuals.</p>'
+      :'<p style="font-size:13.5px;line-height:1.7;color:#2c3040;margin-bottom:10px">DRS <strong>no</strong> tiene restricciones de elegibilidad generales para personas con involucramiento judicial. La elegibilidad se basa en la discapacidad y la necesidad de empleo, no en el historial criminal. DRS mantiene un servicio específico de <strong>Empleo para Reinserción</strong> diseñado para personas que están o han estado sujetas al proceso de justicia penal.</p><p style="font-size:13.5px;line-height:1.7;color:#2c3040;margin-bottom:10px">Lo que puede verse afectado: algunas metas de colocación vocacional facilitadas por DRS — especialmente en atención médica, educación o finanzas — involucran campos donde las <strong>verificaciones de antecedentes del empleador</strong> son estándar. La ley de Illinois protege contra la descalificación automática, pero pueden persistir algunas barreras en profesiones con licencia específicas.</p><p style="font-size:13.5px;line-height:1.7;color:#2c3040"><strong>Acción:</strong> Contacte al consejero de DRS de su hijo de inmediato al momento de la detención para preguntar sobre el estado del caso y las opciones de planificación para la reinserción.</p>'
+    ),'#7a1a2e','left');
+
+  // ── IEP Rights ──
+  html+=h3(isEn?'IEP Rights During and After Detention':'Derechos del IEP Durante y Después de la Detención');
+  html+=card(
+    (isEn
+      ?'<p style="font-size:13.5px;line-height:1.7;color:#2c3040;margin-bottom:10px">If your child had an <strong>active IEP before detention</strong>, their IDEA rights do not end when they enter a facility. In Illinois:</p><ul style="font-size:13.5px;line-height:1.9;color:#2c3040;padding-left:20px;margin-bottom:10px"><li><strong>IDJJ state facilities</strong> (IYC Chicago, IYC Harrisburg, IYC Pere Marquette, IYC St. Charles, IYC Warrenville, PEACE Center): educational services are provided by <strong>School District #428</strong> under 105 ILCS 5/13-40. Superintendent: Dr. Tresa Dunbar.</li><li><strong>County juvenile detention centers</strong> (including the Cook County Juvenile Temporary Detention Center): these do <strong>NOT</strong> fall under IDJJ or School District #428. Your home school district — CPS for Chicago families — holds LEA responsibility and must be notified in writing immediately.</li></ul><p style="font-size:13.5px;line-height:1.7;color:#2c3040;margin-bottom:10px">The Adult Correctional Facility Exception (34 CFR § 300.102(a)(2)) applies only to students aged 18–21 who had <em>no IEP and no disability identification</em> before incarceration. If your child had an active IEP, the exception does not apply.</p><p style="font-size:13.5px;line-height:1.7;color:#2c3040"><strong>When your child returns:</strong> CPS is required to reconvene the IEP team. Contact the school immediately upon your child\'s release and request a meeting in writing.</p>'
+      :'<p style="font-size:13.5px;line-height:1.7;color:#2c3040;margin-bottom:10px">Si su hijo tenía un <strong>IEP activo antes de la detención</strong>, sus derechos bajo IDEA no terminan cuando ingresa a una instalación. En Illinois:</p><ul style="font-size:13.5px;line-height:1.9;color:#2c3040;padding-left:20px;margin-bottom:10px"><li><strong>Instalaciones estatales del IDJJ</strong>: los servicios educativos son proporcionados por el <strong>Distrito Escolar #428</strong> (105 ILCS 5/13-40). Superintendente: Dra. Tresa Dunbar.</li><li><strong>Centros de detención juvenil del condado</strong> (incluyendo el Centro de Detención Temporal Juvenil del Condado de Cook): estos <strong>NO</strong> están bajo el IDJJ ni el Distrito Escolar #428. Su distrito de origen — CPS en Chicago — es responsable y debe ser notificado por escrito de inmediato.</li></ul><p style="font-size:13.5px;line-height:1.7;color:#2c3040;margin-bottom:10px">La Excepción de Instalación Correccional para Adultos solo aplica a estudiantes de 18 a 21 años que no tenían IEP ni identificación de discapacidad antes del encarcelamiento. Si su hijo tenía un IEP activo, la excepción no aplica.</p><p style="font-size:13.5px;line-height:1.7;color:#2c3040"><strong>Cuando su hijo regrese:</strong> CPS debe volver a convocar al equipo del IEP. Contacte a la escuela inmediatamente y solicite una reunión por escrito.</p>'
+    ),'#7a1a2e','left');
+
+  // ── Action Steps ──
+  html+=h3(isEn?'Immediate Action Steps':'Pasos de Acción Inmediata');
+  html+=step('1',isEn?'Contact your ISC agency immediately':'Contacte a su agencia ISC de inmediato',
+    isEn?'Call 1-888-337-5267 (DD Plans). Ask specifically about PUNS status, Medicaid suspension, and HCBS waiver service continuity during the period of detention. Do not wait until release to make this call.'
+       :'Llame al 1-888-337-5267. Pregunte específicamente sobre el estado de PUNS, la suspensión de Medicaid y la continuidad de los servicios de la exención HCBS durante el período de detención.');
+  html+=step('2',isEn?'Notify your home school district in writing':'Notifique a su distrito escolar en escritura',
+    isEn?'If your child had an active IEP, contact CPS Special Education immediately in writing. State that your child has been detained and ask for written confirmation of who holds LEA responsibility during the detention period.'
+       :'Si su hijo tenía un IEP activo, contacte a Educación Especial de CPS por escrito de inmediato. Indique que su hijo ha sido detenido y solicite confirmación escrita de quién tiene la responsabilidad de LEA durante el período de detención.');
+  html+=step('3',isEn?'Ask the facility about educational services':'Pregunte a la instalación sobre los servicios educativos',
+    isEn?'Ask whether the facility has your child\'s IEP on file and how special education services will be delivered. Confirm whether your child is in an IDJJ state facility (School District #428) or a county detention center (contact CPS directly).'
+       :'Pregunte si la instalación tiene el IEP de su hijo y cómo se entregarán los servicios de educación especial. Confirme si su hijo está en una instalación estatal del IDJJ (Distrito Escolar #428) o en un centro de detención del condado (contacte a CPS directamente).');
+  html+=step('4',isEn?'Contact Cabrini Green Legal Aid for legal guidance':'Contacte a Cabrini Green Legal Aid para orientación legal',
+    isEn?'CGLA provides free legal services covering IEP compliance in correctional settings, records relief, and dispute resolution. Call 312.738.1118 or visit cgla.net/criminal-records.'
+       :'CGLA proporciona servicios legales gratuitos que cubren el cumplimiento del IEP en entornos correccionales, alivio de antecedentes y resolución de disputas. Llame al 312.738.1118 o visite cgla.net/criminal-records.');
+  html+=step('5',isEn?'Plan for re-entry before release':'Planifique la reinserción antes de la liberación',
+    isEn?'Before your child\'s release: contact your ISC agency to restart Medicaid; notify CPS to reconvene the IEP team; confirm DRS case status with your child\'s counselor; update PUNS if the annual update is due.'
+       :'Antes de la liberación de su hijo: contacte a su agencia ISC para reiniciar Medicaid; notifique a CPS para volver a convocar al equipo del IEP; confirme el estado del caso de DRS con el consejero de su hijo; actualice PUNS si se debe la actualización anual.');
+
+  // ── Cross-reference callout ──
+  html+='<div style="background:#fff3f5;border:1.5px solid #7a1a2e;border-radius:8px;padding:14px 16px;margin-top:18px;">';
+  html+='<div style="font-weight:700;font-size:12.5px;color:#7a1a2e;margin-bottom:8px;text-transform:uppercase;letter-spacing:.06em;">🔗 '+(isEn?'Connected Tools in This Ecosystem':'Herramientas Conectadas en Este Ecosistema')+'</div>';
+  html+='<p style="font-size:13px;line-height:1.7;color:#2c3040;margin-bottom:8px">'+(isEn?'For the full IDEA compliance picture — including what the law requires during detention, re-entry obligations, and legal dispute resolution — see the:':'Para el panorama completo de cumplimiento de IDEA — incluyendo lo que la ley requiere durante la detención, las obligaciones de reinserción y la resolución de disputas legales — consulte:')+'</p>';
+  html+='<ul style="font-size:13px;line-height:1.9;color:#2c3040;padding-left:18px;margin-bottom:0">';
+  html+='<li><a href="https://catrinawright.github.io/expungement/" target="_blank" rel="noopener" style="color:#4a3282;font-weight:700;text-decoration:underline;">'+(isEn?'IEP Compliance & Records Relief Tool':'Herramienta de Cumplimiento del IEP y Alivio de Antecedentes')+'</a> — '+(isEn?'IDEA obligations in correctional settings, re-entry, records relief, CGLA referral':'Obligaciones de IDEA en entornos correccionales, reinserción, alivio de antecedentes')+'</li>';
+  html+='<li><a href="https://catrinawright.github.io/iep-jargon-tool/" target="_blank" rel="noopener" style="color:#4a3282;font-weight:700;text-decoration:underline;">'+(isEn?'IEP Jargon Tool':'Herramienta de Jerga del IEP')+'</a> — '+(isEn?'Plain-language definitions of MDR, Change of Placement, Adult Correctional Facility Exception, and parent scripts':'Definiciones en lenguaje claro de MDR, Cambio de Colocación, Excepción de Instalación Correccional para Adultos y guiones para padres')+'</li>';
+  html+='<li><a href="https://catrinawright.github.io/iep/" target="_blank" rel="noopener" style="color:#4a3282;font-weight:700;text-decoration:underline;">'+(isEn?'The IEP Journey':'El Viaje del IEP')+'</a> — '+(isEn?'FAPE, LRE, discipline rights, and SEL during and after detention':'FAPE, LRE, derechos disciplinarios y SEL durante y después de la detención')+'</li>';
+  html+='</ul></div>';
+
+  // ── Key Contacts ──
+  html+=h3(isEn?'Key Contacts — Justice-Involved Support':'Contactos Clave — Apoyo para Involucramiento Judicial');
+  html+=contactsGroup('justice');
+
+  return html;
+}
+
+function render(){
+  var str=STR[S.lang];
+  document.getElementById('app-title').textContent=str.title;
+  document.getElementById('lang-btn').textContent=str.langBtn;
+  document.getElementById('disclaimer').textContent=str.disclaimer;
+  document.getElementById('udl-lbl').textContent=str.udl.lbl;
+  document.getElementById('udl-sz-lbl').textContent=str.udl.sz+':';
+  document.getElementById('hc-lbl').textContent=str.udl.hc;
+  document.getElementById('ra-lbl').textContent=S.speaking?str.udl.stop:str.udl.ra;
+  document.getElementById('print-lbl').textContent=str.udl.print;
+  Object.keys(str.nav).forEach(function(key){var btn=document.querySelector('[data-key="'+key+'"]');if(btn){btn.textContent=str.nav[key];btn.className='nav-btn'+(S.section===key?' active':'');}});
+  document.getElementById('content').innerHTML=RENDERERS[S.section]();
+  document.getElementById('main').scrollTop=0;
+}
+
+function nav(key){stopRA();S.section=key;render();}
+function toggleLang(){stopRA();S.lang=S.lang==='en'?'es':'en';document.documentElement.lang=S.lang;render();}
+var zoomClasses=['','zoom-lg','zoom-xl'];
+function setZoom(i){S.zoom=i;var c=document.getElementById('content');c.className=zoomClasses[i]||'';document.querySelectorAll('.udl-btn-sz').forEach(function(b,idx){b.className='udl-btn udl-btn-sz'+(idx===i?' active':'');});}
+function toggleHC(){S.hc=!S.hc;document.body.classList.toggle('hc',S.hc);document.getElementById('hc-btn').classList.toggle('active',S.hc);}
+var S_readEl=null;
+function readElement(el){if(!window.speechSynthesis)return;stopRA();var text=(el.innerText||el.textContent||'').replace(/\n{3,}/g,'\n\n').trim();if(!text)return;S_readEl=el;el.classList.add('reading');var utt=new SpeechSynthesisUtterance(text);utt.lang=S.lang==='en'?'en-US':'es-MX';utt.rate=0.88;utt.onend=utt.onerror=function(){clearReading();};window.speechSynthesis.speak(utt);S.speaking=true;updateRABtn();}
+function clearReading(){if(S_readEl){S_readEl.classList.remove('reading');S_readEl=null;}S.speaking=false;updateRABtn();}
+function stopRA(){if(window.speechSynthesis)window.speechSynthesis.cancel();clearReading();}
+function updateRABtn(){var str=STR[S.lang];document.getElementById('ra-btn').classList.toggle('active',S.speaking);document.getElementById('ra-lbl').textContent=S.speaking?str.udl.stop:str.udl.ra;}
+document.addEventListener('click',function(evt){if(!window.speechSynthesis)return;var READABLE=['.card','.step','.alert','.contact-card'];var EXCLUDE=['.cl-item','.ov-card','button','input','select'];for(var i=0;i<EXCLUDE.length;i++){if(evt.target.closest(EXCLUDE[i]))return;}for(var j=0;j<READABLE.length;j++){var el=evt.target.closest(READABLE[j]);if(el&&document.getElementById('content').contains(el)){readElement(el);return;}}});
+function toggleCheck(key){S.checked[key]=!S.checked[key];render();}
+function resetChecklist(){S.checked={};render();}
+function filterContacts(){var q=document.getElementById('contacts-search').value;var cat=document.getElementById('contacts-filter').value;document.getElementById('contacts-list').innerHTML=buildContactsList(q,cat);}
+render();
+</script>
+</body>
+</html>
